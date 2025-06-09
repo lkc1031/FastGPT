@@ -16,7 +16,7 @@ async function handler(req: NextApiRequest) {
     throw new Error('datasetId is required');
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, tmbId, dataset } = await authDataset({
     req,
     authToken: true,

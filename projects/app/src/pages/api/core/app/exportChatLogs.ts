@@ -41,7 +41,7 @@ async function handler(req: ApiRequestProps<ExportChatLogsBody, {}>, res: NextAp
   } = req.body;
 
   if (!appId) {
-    throw new Error('缺少参数');
+    throw new Error('缺少參數');
   }
 
   const { teamId } = await authApp({ req, authToken: true, appId, per: WritePermissionVal });

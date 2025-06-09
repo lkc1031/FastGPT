@@ -33,7 +33,7 @@ async function handler(req: ApiRequestProps<CreateAppFolderBody>) {
     Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, tmbId } = parentId
     ? await authApp({ req, appId: parentId, per: WritePermissionVal, authToken: true })
     : await authUserPer({ req, authToken: true, per: TeamAppCreatePermissionVal });

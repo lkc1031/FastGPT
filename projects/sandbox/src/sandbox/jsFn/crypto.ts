@@ -5,7 +5,7 @@ export const createHmac = (algorithm: string, secret: string) => {
   const timestamp = Date.now().toString();
   const stringToSign = `${timestamp}\n${secret}`;
 
-  // 创建 HMAC
+  // 創建 HMAC
   const hmac = crypto.createHmac(algorithm, secret);
   hmac.update(stringToSign, 'utf8');
   const signData = hmac.digest();

@@ -32,7 +32,7 @@ async function handler(req: NextApiRequest) {
     return Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, tmbId, collection } = await authDatasetCollection({
     req,
     authToken: true,

@@ -386,7 +386,7 @@ const ChatItem = (props: Props) => {
                 {children}
               </>
             )}
-            {/* 对话框底部的复制按钮 */}
+            {/* 對話框底部的複製按鈕 */}
             {type == ChatRoleEnum.AI &&
               value[0]?.type !== 'interactive' &&
               (!isChatting || (isChatting && !isLastChild)) && (

@@ -27,7 +27,7 @@ async function checkInvalidImg(start: Date, end: Date, limit = 50) {
 
   for await (const image of images) {
     try {
-      // 1. 检测是否有对应的集合
+      // 1. 檢測是否有對應的集合
       const collection = await MongoDatasetCollection.findOne(
         {
           teamId: image.teamId,
@@ -49,10 +49,10 @@ async function checkInvalidImg(start: Date, end: Date, limit = 50) {
     }
   }
 
-  console.log(`检测完成，共删除 ${deleteImageAmount} 个无效图片`);
+  console.log(`檢測完成，共刪除 ${deleteImageAmount} 個無效圖片`);
 }
 
-/* pg 中的数据搬到 mongo dataset.datas 中，并做映射 */
+/* pg 中的數據搬到 mongo dataset.datas 中，並做映射 */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await authCert({ req, authRoot: true });
@@ -60,17 +60,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     (async () => {
       try {
-        console.log('执行脏数据清理任务');
-        // 360天 ~ 2小时前
+        console.log('執行髒數據清理任務');
+        // 360天 ~ 2小時前
         const endTime = addHours(new Date(), start);
         const startTime = addHours(new Date(), end);
         await checkInvalidDatasetFiles(startTime, endTime);
         await checkInvalidImg(startTime, endTime);
         await checkInvalidDatasetData(startTime, endTime);
         await checkInvalidVector(startTime, endTime);
-        console.log('执行脏数据清理任务完毕');
+        console.log('執行髒數據清理任務完畢');
       } catch (error) {
-        console.log('执行脏数据清理任务出错了');
+        console.log('執行髒數據清理任務出錯了');
       }
     })();
 

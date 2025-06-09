@@ -128,7 +128,7 @@ const DatasetParamsModal = ({
     setValue
   ]);
 
-  // 保证只有 80 左右个刻度。
+  // 保證只有 80 左右個刻度。
   const maxTokenStep = useMemo(() => {
     if (!maxTokens || maxTokens < 8000) return 80;
     return Math.ceil(maxTokens / 80 / 100) * 100;

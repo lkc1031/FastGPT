@@ -17,7 +17,7 @@ const SideBar = (e?: Props) => {
 
   const [isFolded, setIsFolded] = useState(false);
 
-  // 保存上一次折叠状态
+  // 保存上一次摺疊狀態
   const preFoledStatus = useRef<Boolean>(false);
 
   useEffect(() => {

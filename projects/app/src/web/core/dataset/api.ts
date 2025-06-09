@@ -267,7 +267,7 @@ export const postInsertData2Dataset = (data: InsertOneDatasetDataProps) =>
 export const putDatasetDataById = (data: UpdateDatasetDataProps) =>
   PUT('/core/dataset/data/update', data);
 /**
- * 删除一条知识库数据
+ * 刪除一條知識庫數據
  */
 export const delOneDatasetDataById = (id: string) =>
   DELETE<string>(`/core/dataset/data/delete`, { id });

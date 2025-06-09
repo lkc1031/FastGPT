@@ -59,10 +59,10 @@ import { type WorkflowInteractiveResponseType } from '@fastgpt/global/core/workf
 
 /* 
   Context
-  1. WorkflowInitContext: 带 nodes
+  1. WorkflowInitContext: 帶 nodes
   2. WorkflowNodeEdgeContext: 除了 nodes 外的，nodes 操作。以及 edges 和其操作
-  3. WorkflowContextProvider: 旧的 context，未拆分
-  4. WorkflowEventContextProvider：一些边缘的 event
+  3. WorkflowContextProvider: 舊的 context，未拆分
+  4. WorkflowEventContextProvider：一些邊緣的 event
 */
 export const ReactFlowCustomProvider = ({
   templates,
@@ -650,7 +650,7 @@ const WorkflowContextProvider = ({
             cTime: formatTime2YMDHMW(),
             ...debugData.variables
           },
-          query: debugData.query, // 添加 query 参数
+          query: debugData.query, // 添加 query 參數
           history: debugData.history,
           appId
         });
@@ -908,7 +908,7 @@ const WorkflowContextProvider = ({
       const nodes = e.nodes?.map((item) => storeNode2FlowNode({ item, t })) || [];
       const edges = e.edges?.map((item) => storeEdge2RenderEdge({ edge: item })) || [];
 
-      // Get storage snapshot，兼容旧版正在编辑的用户，刷新后会把 local 数据存到内存并删除
+      // Get storage snapshot，兼容舊版正在編輯的用戶，刷新後會把 local 數據存到內存並刪除
       const pastSnapshot = (() => {
         try {
           const pastSnapshot = localStorage.getItem(`${appId}-past`);
@@ -921,7 +921,7 @@ const WorkflowContextProvider = ({
         const defaultState = pastSnapshot[pastSnapshot.length - 1].state;
 
         if (pastSnapshot[0].diff && defaultState) {
-          // 设置旧的历史记录
+          // 設置舊的歷史記錄
           setPast(
             pastSnapshot
               .map((item) => {
@@ -949,7 +949,7 @@ const WorkflowContextProvider = ({
               .filter(Boolean) as WorkflowSnapshotsType[]
           );
 
-          // 设置当前版本
+          // 設置當前版本
           const targetState = getAppConfigByDiff(
             pastSnapshot[pastSnapshot.length - 1].state,
             pastSnapshot[0].diff
@@ -967,7 +967,7 @@ const WorkflowContextProvider = ({
         }
       }
 
-      // 有历史记录，直接用历史记录覆盖
+      // 有歷史記錄，直接用歷史記錄覆蓋
       if (isInit && past.length > 0) {
         const firstPast = past[0];
         setNodes(firstPast.nodes);
@@ -975,7 +975,7 @@ const WorkflowContextProvider = ({
         setAppDetail((state) => ({ ...state, chatConfig: firstPast.chatConfig }));
         return;
       }
-      // 初始化一个历史记录
+      // 初始化一個歷史記錄
       if (isInit && past.length === 0) {
         setPast([
           {

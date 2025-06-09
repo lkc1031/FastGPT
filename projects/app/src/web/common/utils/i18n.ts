@@ -12,11 +12,11 @@ export const langMap = {
     avatar: 'common/language/America'
   },
   [LangEnum.zh_CN]: {
-    label: '简体中文',
+    label: '簡體中文',
     avatar: 'common/language/China'
   },
   [LangEnum.zh_Hant]: {
-    label: '繁体中文',
+    label: '繁體中文',
     avatar: 'common/language/China'
   }
 };

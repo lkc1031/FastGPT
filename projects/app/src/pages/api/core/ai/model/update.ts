@@ -35,7 +35,7 @@ async function handler(
   delete metadataConcat.avatar;
   delete metadataConcat.isCustom;
 
-  // 强制赋值 model，避免脏的 metadata 覆盖真实 model
+  // 強制賦值 model，避免髒的 metadata 覆蓋真實 model
   metadataConcat.model = model;
   metadataConcat.name = metadataConcat?.name?.trim();
   // Delete null value

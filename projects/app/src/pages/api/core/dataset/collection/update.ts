@@ -38,7 +38,7 @@ const updateFolderChildrenForbid = async ({
   forbid: boolean;
   session: ClientSession;
 }) => {
-  // 从 collection 作为 parent 进行递归查找，找到它所有 forbid 与它相同的 child
+  // 從 collection 作爲 parent 進行遞歸查找，找到它所有 forbid 與它相同的 child
   const find = async (parentId: string): Promise<string[]> => {
     const children = await MongoDatasetCollection.find(
       {
@@ -89,7 +89,7 @@ async function handler(req: ApiRequestProps<UpdateDatasetCollectionParams>) {
     return Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { collection, teamId, tmbId } = await authDatasetCollection({
     req,
     authToken: true,

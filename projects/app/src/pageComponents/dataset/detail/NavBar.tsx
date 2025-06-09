@@ -200,7 +200,7 @@ const NavBar = ({ currentTab }: { currentTab: TabEnum }) => {
             />
           </Box>
 
-          {/* 训练情况hover弹窗 */}
+          {/* 訓練情況hover彈窗 */}
           <MyPopover
             placement="bottom-end"
             visibility={currentTab === TabEnum.collectionCard ? 'visible' : 'hidden'}

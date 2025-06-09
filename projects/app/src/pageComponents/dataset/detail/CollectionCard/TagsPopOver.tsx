@@ -64,7 +64,7 @@ const TagsPopOver = ({
 
       for (let i = 0; i < tagList.length; i++) {
         const tag = tagList[i];
-        const estimatedWidth = tag.tag.length * tagWidth + 16; // 加上左右 padding 的宽度
+        const estimatedWidth = tag.tag.length * tagWidth + 16; // 加上左右 padding 的寬度
         if (totalWidth + estimatedWidth <= containerWidth) {
           totalWidth += estimatedWidth;
           visibleCount++;

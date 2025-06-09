@@ -22,7 +22,7 @@ async function handler(
   const { tmbId } = await authCert({ req, authToken: true });
   // const user = await getUserDetail({ tmbId });
 
-  // 更新对应的记录
+  // 更新對應的記錄
   await mongoSessionRun(async (session) => {
     const tmb = await MongoTeamMember.findById(tmbId).session(session);
     if (timezone) {

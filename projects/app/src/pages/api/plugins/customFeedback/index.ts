@@ -45,7 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     if (!chatId || !dataId) {
       return res.json({
-        response: `\\n\\n**自动反馈调试**: ${feedback}\\n\\n`
+        response: `\\n\\n**自動反饋調試**: ${feedback}\\n\\n`
       });
     }
 

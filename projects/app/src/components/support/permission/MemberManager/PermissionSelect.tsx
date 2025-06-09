@@ -186,7 +186,7 @@ function PermissionSelect({
 
           {/* <MyDivider my={3} />
 
-          {multipleValues.length > 0 && <Box m="4">其他权限（多选）</Box>} */}
+          {multipleValues.length > 0 && <Box m="4">其他權限（多選）</Box>} */}
 
           {/* The list of multiple select permissions */}
           {/* {list

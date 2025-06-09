@@ -14,5 +14,5 @@ export type PluginRunBoxProps = {
 
   onStartChat?: onStartChatType;
   onNewChat?: () => void;
-  showTab?: PluginRunBoxTabEnum; // 如何设置了该字段，全局都 tab 不生效
+  showTab?: PluginRunBoxTabEnum; // 如何設置了該字段，全局都 tab 不生效
 };

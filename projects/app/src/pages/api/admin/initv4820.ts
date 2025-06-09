@@ -13,9 +13,9 @@ import { loadSystemModels } from '@fastgpt/service/core/ai/config/utils';
 import { ModelTypeEnum } from '@fastgpt/global/core/ai/model';
 
 /* 
-  简单版迁移：直接升级到最新镜像，会去除 MongoDatasetData 里的索引。直接执行这个脚本。
-  无缝迁移：
-    1. 移动 User 表中的 avatar 字段到 TeamMember 表中。
+  簡單版遷移：直接升級到最新鏡像，會去除 MongoDatasetData 裏的索引。直接執行這個腳本。
+  無縫遷移：
+    1. 移動 User 表中的 avatar 字段到 TeamMember 表中。
 */
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await authCert({ req, authRoot: true });

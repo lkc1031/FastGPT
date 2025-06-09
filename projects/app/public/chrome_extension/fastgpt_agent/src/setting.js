@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     document.getElementById('addConfigButton').addEventListener('click', handleAddButtonClick);
     document.getElementById('startChatButton').addEventListener('click', () => window.location.href = 'popup.html');
 
-    // 监听开关和输入框变化事件
+    // 監聽開關和輸入框變化事件
     const showChatBotSwitch = document.getElementById('showChatBotSwitch');
     const chatBotWidthInput = document.getElementById('chatBotWidthInput');
     const chatBotHeightInput = document.getElementById('chatBotHeightInput');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     chatBotWidthInput.addEventListener('change', () => handleChatBotWidthChange(chatBotWidthInput.value));
     chatBotHeightInput.addEventListener('change', () => handleChatBotHeightChange(chatBotHeightInput.value));
 
-    // 初始化开关和输入框的值
+    // 初始化開關和輸入框的值
     showChatBotSwitch.checked = showChatBot;
     chatBotWidthInput.value = chatBotWidth;
     chatBotHeightInput.value = chatBotHeight;
@@ -45,9 +45,9 @@ function createConfigRow(config, chatbotSrc) {
         <td>${config.name}</td>
         <td>${config.url}</td>
         <td>
-            <button type="button" class="editButton">编辑</button>
+            <button type="button" class="editButton">編輯</button>
             <span>|</span>
-            <button type="button" class="deleteButton">删除</button>
+            <button type="button" class="deleteButton">刪除</button>
         </td>
         <td>
             <label class="custom-radio">
@@ -98,11 +98,11 @@ function updateSelectedRadioButton() {
 function showError(message) {
     const errorMsg = document.getElementById('errorMsg');
     errorMsg.textContent = message;
-    errorMsg.style.opacity = 1; // 显示错误消息
+    errorMsg.style.opacity = 1; // 顯示錯誤消息
 
-    // 设置一个定时器，在5秒后隐藏错误消息
+    // 設置一個定時器，在5秒後隱藏錯誤消息
     setTimeout(() => {
-        errorMsg.style.opacity = 0; // 隐藏错误消息
+        errorMsg.style.opacity = 0; // 隱藏錯誤消息
     }, 3000);
 }
 
@@ -112,7 +112,7 @@ async function updateStorage(key, value) {
         await chrome.storage.local.set({[key]: value});
         console.log(`${key} 已更新: ${value}`);
     } catch (error) {
-        console.error(`更新 ${key} 出错:`, error);
+        console.error(`更新 ${key} 出錯:`, error);
     }
 }
 
@@ -188,9 +188,9 @@ function isConfigUnique(name, url, index) {
 function checkConfig(name, url, index) {
     let errorMsg = '';
     if (!name || !url) {
-        errorMsg = '名称和地址都是必填项。';
+        errorMsg = '名稱和地址都是必填項。';
     } else if (!isConfigUnique(name, url, index)) {
-        errorMsg = '名称或地址不能重复。';
+        errorMsg = '名稱或地址不能重複。';
     }
     return errorMsg;
 }
@@ -241,7 +241,7 @@ function handleCancelButtonClick(row, isNewConfig = false) {
         row.querySelector('td:nth-child(1)').textContent = config.name;
         row.querySelector('td:nth-child(2)').textContent = config.url;
         row.querySelector('.editButton').disabled = false;
-        // 移除编辑模式下的确认和取消按钮
+        // 移除編輯模式下的確認和取消按鈕
         const iconContainer = row.querySelector('td:nth-child(3) > div');
         if (iconContainer) {
             iconContainer.remove();

@@ -13,7 +13,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     '_id openaiAccount'
   );
 
-  console.log(`共 ${users.length} 个用户需要更新`);
+  console.log(`共 ${users.length} 個用戶需要更新`);
   let count = 0;
   for (const user of users) {
     await mongoSessionRun(async (session) => {
@@ -30,7 +30,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       await user.save({ session });
     });
     count++;
-    console.log(`已更新 ${count} 个用户`);
+    console.log(`已更新 ${count} 個用戶`);
   }
 
   return { success: true };

@@ -10,13 +10,13 @@ import { MongoTeamMember } from '@fastgpt/service/support/user/team/teamMemberSc
 import { type NextApiRequest, type NextApiResponse } from 'next';
 
 /* 
-  简单版迁移：直接升级到最新镜像，会去除 MongoDatasetData 里的索引。直接执行这个脚本。
-  无缝迁移：
-    1. 先用 4.8.18-tmp 版本，会同时有 MongoDatasetData 和 MongoDatasetDataText 两个表和索引，依然是 MongoDatasetData 生效。会同步更新两张表数据。
-    2. 执行升级脚本，不要删除 MongoDatasetData 里的数据。
-    3. 切换正式版镜像，让 MongoDatasetDataText 生效。
-    4. 删除 MongoDatasetData 里的索引和多余字段。（4819 再删
-    5. 移动 User 表中的 avatar 字段到 TeamMember 表中。
+  簡單版遷移：直接升級到最新鏡像，會去除 MongoDatasetData 裏的索引。直接執行這個腳本。
+  無縫遷移：
+    1. 先用 4.8.18-tmp 版本，會同時有 MongoDatasetData 和 MongoDatasetDataText 兩個表和索引，依然是 MongoDatasetData 生效。會同步更新兩張表數據。
+    2. 執行升級腳本，不要刪除 MongoDatasetData 裏的數據。
+    3. 切換正式版鏡像，讓 MongoDatasetDataText 生效。
+    4. 刪除 MongoDatasetData 裏的索引和多餘字段。（4819 再刪
+    5. 移動 User 表中的 avatar 字段到 TeamMember 表中。
 */
 let success = 0;
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -61,7 +61,7 @@ const restore = async () => {
 const initData = async (batchSize: number) => {
   while (true) {
     try {
-      // 找到没有初始化的数据
+      // 找到沒有初始化的數據
       const dataList = await MongoDatasetData.find(
         {
           initFullText: { $exists: false }
@@ -92,7 +92,7 @@ const initData = async (batchSize: number) => {
         }
       }
 
-      // 把成功插入的新数据的 dataId 更新为已初始化
+      // 把成功插入的新數據的 dataId 更新爲已初始化
       await MongoDatasetData.updateMany(
         { _id: { $in: dataList.map((item) => item._id) } },
         // FullText tmp

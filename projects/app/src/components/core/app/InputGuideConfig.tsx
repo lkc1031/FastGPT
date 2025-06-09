@@ -39,9 +39,9 @@ import ChatFunctionTip from './Tip';
 import FormLabel from '@fastgpt/web/components/common/MyBox/FormLabel';
 import PopoverConfirm from '@fastgpt/web/components/common/MyPopover/PopoverConfirm';
 
-const csvTemplate = `"第一列内容"
-"只会将第一列内容导入，其余列会被忽略"
-"AIGC发展分为几个阶段？"`;
+const csvTemplate = `"第一列內容"
+"只會將第一列內容導入，其餘列會被忽略"
+"AIGC發展分爲幾個階段？"`;
 
 const InputGuideConfig = ({
   appId,

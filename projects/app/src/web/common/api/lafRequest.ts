@@ -55,7 +55,7 @@ function requestFinish({ url }: { url: string }) {
 }
 
 /**
- * 请求开始
+ * 請求開始
  */
 function startInterceptors(config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
   if (config.headers && !config.headers.Authorization) {
@@ -66,13 +66,13 @@ function startInterceptors(config: InternalAxiosRequestConfig): InternalAxiosReq
 }
 
 /**
- * 请求成功,检查请求头
+ * 請求成功,檢查請求頭
  */
 function responseSuccess(response: AxiosResponse<ResponseDataType>) {
   return response;
 }
 /**
- * 响应数据检查
+ * 響應數據檢查
  */
 function checkRes(
   res: ResponseDataType,
@@ -83,7 +83,7 @@ function checkRes(
 ) {
   if (res === undefined) {
     console.log('error->', res, 'res is empty');
-    return Promise.reject('服务器异常');
+    return Promise.reject('服務器異常');
   } else if (res.error) {
     return responseError(data.error, url, data, requestConfig, method);
   }
@@ -92,7 +92,7 @@ function checkRes(
 }
 
 /**
- * 响应错误
+ * 響應錯誤
  */
 function responseError(
   err: any,
@@ -101,10 +101,10 @@ function responseError(
   requestConfig: ConfigType,
   method: Method
 ) {
-  console.log('error->', '请求错误', err);
+  console.log('error->', '請求錯誤', err);
 
   if (!err) {
-    return Promise.reject({ message: '未知错误' });
+    return Promise.reject({ message: '未知錯誤' });
   }
   if (typeof err === 'string') {
     return Promise.reject({ message: err });
@@ -126,7 +126,7 @@ function responseError(
           return request(url, data, requestConfig, method);
         })
         .catch((err) => {
-          return Promise.reject({ message: '登录凭证过期' });
+          return Promise.reject({ message: '登錄憑證過期' });
         });
     }
     return Promise.reject(err?.response?.data);
@@ -134,17 +134,17 @@ function responseError(
   return Promise.reject(err);
 }
 
-/* 创建请求实例 */
+/* 創建請求實例 */
 const instance = axios.create({
-  timeout: 60000, // 超时时间
+  timeout: 60000, // 超時時間
   headers: {
     'content-type': 'application/json'
   }
 });
 
-/* 请求拦截 */
+/* 請求攔截 */
 instance.interceptors.request.use(startInterceptors, (err) => Promise.reject(err));
-/* 响应拦截 */
+/* 響應攔截 */
 instance.interceptors.response.use(responseSuccess, (err) => Promise.reject(err));
 
 function request(url: string, data: any, requestConfig: ConfigType, method: Method): any {
@@ -167,7 +167,7 @@ function request(url: string, data: any, requestConfig: ConfigType, method: Meth
       data: ['POST', 'PUT'].includes(method) ? data : null,
       params: !['POST', 'PUT'].includes(method) ? data : null,
       signal: cancelToken?.signal,
-      ...config // 用户自定义配置，可以覆盖前面的配置
+      ...config // 用戶自定義配置，可以覆蓋前面的配置
     })
     .then((res) => checkRes(res.data, url, data, requestConfig, method))
     .catch((err) => responseError(err, url, data, requestConfig, method))
@@ -175,7 +175,7 @@ function request(url: string, data: any, requestConfig: ConfigType, method: Meth
 }
 
 /**
- * api请求方式
+ * api請求方式
  * @param {String} url
  * @param {Any} params
  * @param {Object} config

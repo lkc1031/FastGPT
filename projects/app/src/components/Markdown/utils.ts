@@ -27,16 +27,16 @@ export const mdTextFormat = (text: string) => {
     return match;
   });
 
-  // 处理 [quote:id] 格式引用，将 [quote:675934a198f46329dfc6d05a] 转换为 [675934a198f46329dfc6d05a](CITE)
+  // 處理 [quote:id] 格式引用，將 [quote:675934a198f46329dfc6d05a] 轉換爲 [675934a198f46329dfc6d05a](CITE)
   text = text
     // .replace(
     //   /([\u4e00-\u9fa5\u3000-\u303f])([a-zA-Z0-9])|([a-zA-Z0-9])([\u4e00-\u9fa5\u3000-\u303f])/g,
     //   '$1$3 $2$4'
     // )
-    // 处理 格式引用，将 [675934a198f46329dfc6d05a] 转换为 [675934a198f46329dfc6d05a](CITE)
+    // 處理 格式引用，將 [675934a198f46329dfc6d05a] 轉換爲 [675934a198f46329dfc6d05a](CITE)
     .replace(/\[([a-f0-9]{24})\](?!\()/g, '[$1](CITE)');
 
-  // 处理链接后的中文标点符号，增加空格
+  // 處理鏈接後的中文標點符號，增加空格
   text = text.replace(/(https?:\/\/[^\s，。！？；：、]+)([，。！？；：、])/g, '$1 $2');
 
   return text;

@@ -10,15 +10,15 @@ export const fileDownload = ({
   type: string;
   filename: string;
 }) => {
-  // 导出为文件
+  // 導出爲文件
   const blob = new Blob([`\uFEFF${text}`], { type: `${type};charset=utf-8;` });
 
-  // 创建下载链接
+  // 創建下載鏈接
   const downloadLink = document.createElement('a');
   downloadLink.href = window.URL.createObjectURL(blob);
   downloadLink.download = filename;
 
-  // 添加链接到页面并触发下载
+  // 添加鏈接到頁面並觸發下載
   document.body.appendChild(downloadLink);
   downloadLink.click();
   document.body?.removeChild(downloadLink);

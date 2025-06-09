@@ -76,7 +76,7 @@ function requestFinish({ signId, url }: { signId?: string; url: string }) {
 }
 
 /**
- * 请求开始
+ * 請求開始
  */
 function startInterceptors(config: InternalAxiosRequestConfig): InternalAxiosRequestConfig {
   if (config.headers) {
@@ -86,18 +86,18 @@ function startInterceptors(config: InternalAxiosRequestConfig): InternalAxiosReq
 }
 
 /**
- * 请求成功,检查请求头
+ * 請求成功,檢查請求頭
  */
 function responseSuccess(response: AxiosResponse<ResponseDataType>) {
   return response;
 }
 /**
- * 响应数据检查
+ * 響應數據檢查
  */
 function checkRes(data: ResponseDataType) {
   if (data === undefined) {
     console.log('error->', data, 'data is empty');
-    return Promise.reject('服务器异常');
+    return Promise.reject('服務器異常');
   } else if (data.code < 200 || data.code >= 400) {
     return Promise.reject(data);
   }
@@ -105,10 +105,10 @@ function checkRes(data: ResponseDataType) {
 }
 
 /**
- * 响应错误
+ * 響應錯誤
  */
 function responseError(err: any) {
-  console.log('error->', '请求错误', err);
+  console.log('error->', '請求錯誤', err);
   const isOutlinkPage = {
     '/chat/share': true,
     '/chat/team': true,
@@ -118,7 +118,7 @@ function responseError(err: any) {
   const data = err?.response?.data || err;
 
   if (!err) {
-    return Promise.reject({ message: '未知错误' });
+    return Promise.reject({ message: '未知錯誤' });
   }
   if (typeof err === 'string') {
     return Promise.reject({ message: err });
@@ -127,7 +127,7 @@ function responseError(err: any) {
     return Promise.reject(data);
   }
 
-  // 有报错响应
+  // 有報錯響應
   if (data?.code in TOKEN_ERROR_CODE) {
     if (!isOutlinkPage) {
       clearToken();
@@ -157,17 +157,17 @@ function responseError(err: any) {
   return Promise.reject(data);
 }
 
-/* 创建请求实例 */
+/* 創建請求實例 */
 const instance = axios.create({
-  timeout: 60000, // 超时时间
+  timeout: 60000, // 超時時間
   headers: {
     'content-type': 'application/json'
   }
 });
 
-/* 请求拦截 */
+/* 請求攔截 */
 instance.interceptors.request.use(startInterceptors, (err) => Promise.reject(err));
-/* 响应拦截 */
+/* 響應攔截 */
 instance.interceptors.response.use(responseSuccess, (err) => Promise.reject(err));
 
 function request(
@@ -194,7 +194,7 @@ function request(
       params: !['POST', 'PUT'].includes(method) ? data : undefined,
       signal: cancelToken?.signal ?? abortSignal,
       withCredentials,
-      ...config // 用户自定义配置，可以覆盖前面的配置
+      ...config // 用戶自定義配置，可以覆蓋前面的配置
     })
     .then((res) => checkRes(res.data))
     .catch((err) => responseError(err))
@@ -202,7 +202,7 @@ function request(
 }
 
 /**
- * api请求方式
+ * api請求方式
  * @param {String} url
  * @param {Any} params
  * @param {Object} config

@@ -44,8 +44,8 @@ const DashboardContainer = ({
 
   // First tab
   const currentTab = useMemo(() => {
-    const path = router.asPath.split('?')[0]; // 移除查询参数
-    const segments = path.split('/').filter(Boolean); // 过滤空字符串
+    const path = router.asPath.split('?')[0]; // 移除查詢參數
+    const segments = path.split('/').filter(Boolean); // 過濾空字符串
 
     return (segments.pop() as TabEnumType) || TabEnum.apps;
   }, [router.asPath]);

@@ -41,13 +41,13 @@ async function handler(req: ApiRequestProps<rebuildEmbeddingBody>): Promise<Resp
   ]);
 
   if (rebuilding || training) {
-    return Promise.reject('数据集正在训练或者重建中，请稍后再试');
+    return Promise.reject('數據集正在訓練或者重建中，請稍後再試');
   }
 
   const { billId } = await createTrainingUsage({
     teamId,
     tmbId,
-    appName: '切换索引模型',
+    appName: '切換索引模型',
     billSource: UsageSourceEnum.training,
     vectorModel: getEmbeddingModel(dataset.vectorModel)?.name,
     agentModel: getLLMModel(dataset.agentModel)?.name,

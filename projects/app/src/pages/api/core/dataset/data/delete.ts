@@ -16,7 +16,7 @@ async function handler(req: NextApiRequest) {
     Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { datasetData, tmbId, teamId, collection } = await authDatasetData({
     req,
     authToken: true,

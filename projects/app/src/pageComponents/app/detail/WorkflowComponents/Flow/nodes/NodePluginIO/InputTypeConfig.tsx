@@ -427,7 +427,7 @@ const InputTypeConfig = ({
                   appendEnums({ label: item.value, value: item.value })
                 );
 
-                // 防止最后一个元素被focus
+                // 防止最後一個元素被focus
                 setTimeout(() => {
                   if (document.activeElement instanceof HTMLElement) {
                     document.activeElement.blur();

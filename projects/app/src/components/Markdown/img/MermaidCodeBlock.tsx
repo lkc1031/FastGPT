@@ -74,7 +74,7 @@ const MermaidBlock = ({ code }: { code: string }) => {
     canvas.height = h;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    // 绘制白色背景
+    // 繪製白色背景
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, w, h);
 

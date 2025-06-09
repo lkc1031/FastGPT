@@ -300,7 +300,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             responseDetail
           });
         }
-        return Promise.reject('您的工作流版本过低，请重新发布一次');
+        return Promise.reject('您的工作流版本過低，請重新發布一次');
       })();
 
     // save chat

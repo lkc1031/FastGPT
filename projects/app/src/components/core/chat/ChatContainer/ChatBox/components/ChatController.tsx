@@ -72,7 +72,7 @@ const ChatController = ({
       borderRadius={'sm'}
       overflow={'hidden'}
       border={'base'}
-      // 最后一个子元素，没有border
+      // 最後一個子元素，沒有border
       css={css({
         '& > *:last-child, & > *:last-child svg': {
           borderRight: 'none',

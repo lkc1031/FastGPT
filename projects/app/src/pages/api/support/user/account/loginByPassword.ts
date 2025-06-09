@@ -30,7 +30,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     type: UserAuthTypeEnum.login
   });
 
-  // 检测用户是否存在
+  // 檢測用戶是否存在
   const authCert = await MongoUser.findOne(
     {
       username

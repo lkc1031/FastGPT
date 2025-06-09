@@ -5,7 +5,7 @@ import type { AdminUpdateFeedbackParams } from '@/global/core/chat/api.d';
 import { MongoChatItem } from '@fastgpt/service/core/chat/chatItemSchema';
 import { authChatCrud } from '@/service/support/permission/auth/chat';
 
-/* 初始化我的聊天框，需要身份验证 */
+/* 初始化我的聊天框，需要身份驗證 */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { appId, chatId, dataId, datasetId, feedbackDataId, q, a } =

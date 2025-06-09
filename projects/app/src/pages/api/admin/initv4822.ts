@@ -5,7 +5,7 @@ import { MongoTeam } from '@fastgpt/service/support/user/team/teamSchema';
 import { type NextApiRequest, type NextApiResponse } from 'next';
 
 /*
- * 复制 Team 表中的 notificationAccount 到 User 表的 contact 中
+ * 複製 Team 表中的 notificationAccount 到 User 表的 contact 中
  */
 async function handler(req: NextApiRequest, _res: NextApiResponse) {
   await authCert({ req, authRoot: true });

@@ -25,7 +25,7 @@ async function handler(req: ApiRequestProps<PushDatasetDataProps>, res: NextApiR
     throw new Error('Data is too long, max 200');
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, tmbId, collection } = await authDatasetCollection({
     req,
     authToken: true,

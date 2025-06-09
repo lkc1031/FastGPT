@@ -242,7 +242,7 @@ export const v1Workflow2V2 = (
 } => {
   let copyNodes = JSON.parse(JSON.stringify(nodes)) as V1WorkflowType[];
 
-  // 只保留1个开始节点
+  // 只保留1個開始節點
   copyNodes = copyNodes.filter((node, index, self) => {
     if (node.flowType === FlowTypeEnum.questionInput) {
       return index === self.findIndex((item) => item.flowType === FlowTypeEnum.questionInput);
@@ -322,7 +322,7 @@ export const v1Workflow2V2 = (
         };
 
         if (input.key === 'userChatInput') {
-          newInput.label = '问题输入';
+          newInput.label = '問題輸入';
         } else if (input.key === 'quoteQA') {
           newInput.label = '';
         } else if (input.key === 'pluginId') {
@@ -386,7 +386,7 @@ export const v1Workflow2V2 = (
 
     // special node
     if (node.flowType === FlowTypeEnum.questionInput) {
-      node.name = '流程开始';
+      node.name = '流程開始';
     } else if (node.flowType === FlowTypeEnum.pluginOutput) {
       node.outputs.forEach((output) => {
         inputs.push({
@@ -418,7 +418,7 @@ export const v1Workflow2V2 = (
   });
   let newEdges: StoreEdgeItemType[] = [];
 
-  // 遍历output，连线
+  // 遍歷output，連線
   copyNodes.forEach((node) => {
     node.outputs.forEach((output) => {
       output.targets?.forEach((target) => {
@@ -454,7 +454,7 @@ export const v1Workflow2V2 = (
     });
   });
 
-  // 去除相同source和target的线
+  // 去除相同source和target的線
   newEdges = newEdges.filter((edge, index, self) => {
     return (
       self.findIndex((item) => item.source === edge.source && item.target === edge.target) === index
@@ -480,7 +480,7 @@ export const v1Workflow2V2 = (
     });
   });
 
-  // 更新特殊的输入(输入全部从开始取)
+  // 更新特殊的輸入(輸入全部從開始取)
   newNodes.forEach((node) => {
     node.inputs.forEach((input) => {
       if (workflowStart && input.key === NodeInputKeyEnum.userChatInput) {

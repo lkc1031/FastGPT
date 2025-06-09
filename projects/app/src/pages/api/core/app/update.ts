@@ -35,17 +35,17 @@ export type AppUpdateQuery = {
 
 export type AppUpdateBody = AppUpdateParams;
 
-// 更新应用接口
+// 更新應用接口
 // 包括如下功能：
-// 1. 更新应用的信息（包括名称，类型，头像，介绍等）
-// 2. 更新应用的编排信息
-// 3. 移动应用
-// 操作权限：
-// 1. 更新信息和工作流编排需要有应用的写权限
-// 2. 移动应用需要有
-//  (1) 父目录的管理权限
-//  (2) 目标目录的管理权限
-//  (3) 如果从根目录移动或移动到根目录，需要有团队的应用创建权限
+// 1. 更新應用的信息（包括名稱，類型，頭像，介紹等）
+// 2. 更新應用的編排信息
+// 3. 移動應用
+// 操作權限：
+// 1. 更新信息和工作流編排需要有應用的寫權限
+// 2. 移動應用需要有
+//  (1) 父目錄的管理權限
+//  (2) 目標目錄的管理權限
+//  (3) 如果從根目錄移動或移動到根目錄，需要有團隊的應用創建權限
 async function handler(req: ApiRequestProps<AppUpdateBody, AppUpdateQuery>) {
   const { parentId, name, avatar, type, intro, nodes, edges, chatConfig, teamTags } = req.body;
 

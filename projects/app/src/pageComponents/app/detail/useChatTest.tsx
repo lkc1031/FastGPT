@@ -47,7 +47,7 @@ export const useChatTest = ({
     }: StartChatFnProps) => {
       const histories = messages.slice(-1);
 
-      // 流请求，获取数据
+      // 流請求，獲取數據
       const { responseText } = await streamFetch({
         url: '/api/core/chat/chatTest',
         data: {

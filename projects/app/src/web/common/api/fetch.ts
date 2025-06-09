@@ -65,7 +65,7 @@ export const streamFetch = ({
     const failedFinish = (err?: any) => {
       finished = true;
       reject({
-        message: getErrText(err, errMsg ?? '响应过程出现异常~'),
+        message: getErrText(err, errMsg ?? '響應過程出現異常~'),
         responseText
       });
     };
@@ -235,7 +235,7 @@ export const streamFetch = ({
             if (parseJson.statusText === TeamErrEnum.aiPointsNotEnough) {
               useSystemStore.getState().setNotSufficientModalType(TeamErrEnum.aiPointsNotEnough);
             }
-            errMsg = getErrText(parseJson, '流响应错误');
+            errMsg = getErrText(parseJson, '流響應錯誤');
           } else if (
             [SseResponseEventEnum.workflowDuration, SseResponseEventEnum.flowNodeStatus].includes(
               event as any

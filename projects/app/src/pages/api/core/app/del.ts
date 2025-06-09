@@ -27,7 +27,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const { appId } = req.query as { appId: string };
 
   if (!appId) {
-    throw new Error('参数错误');
+    throw new Error('參數錯誤');
   }
 
   // Auth owner (folder owner, can delete all apps in the folder)
@@ -93,7 +93,7 @@ export const onDelOneApp = async ({
         { session }
       );
 
-      // 删除分享链接
+      // 刪除分享鏈接
       await MongoOutLink.deleteMany({
         appId
       }).session(session);

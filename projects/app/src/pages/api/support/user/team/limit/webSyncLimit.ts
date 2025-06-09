@@ -6,7 +6,7 @@ import { authCert } from '@fastgpt/service/support/permission/auth/common';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   try {
-    // 凭证校验
+    // 憑證校驗
     const { teamId } = await authCert({ req, authToken: true });
 
     await checkWebSyncLimit({

@@ -29,11 +29,11 @@ async function handler(
     per: WritePermissionVal
   });
 
-  // 对 apps 中的 id 进行去重，确保每个应用只出现一次
+  // 對 apps 中的 id 進行去重，確保每個應用只出現一次
   const uniqueAppIds = new Set();
   apps = apps.filter((app) => {
     if (uniqueAppIds.has(app.appId)) {
-      return false; // 过滤掉重复的 app id
+      return false; // 過濾掉重複的 app id
     }
     uniqueAppIds.add(app.appId);
     return true;

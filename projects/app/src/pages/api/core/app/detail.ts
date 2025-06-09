@@ -4,14 +4,14 @@ import { NextAPI } from '@/service/middleware/entry';
 import { ReadPermissionVal } from '@fastgpt/global/support/permission/constant';
 import { CommonErrEnum } from '@fastgpt/global/common/error/code/common';
 import { rewriteAppWorkflowToDetail } from '@fastgpt/service/core/app/utils';
-/* 获取应用详情 */
+/* 獲取應用詳情 */
 async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const { appId } = req.query as { appId: string };
 
   if (!appId) {
     Promise.reject(CommonErrEnum.missingParams);
   }
-  // 凭证校验
+  // 憑證校驗
   const { app, teamId, isRoot } = await authApp({
     req,
     authToken: true,

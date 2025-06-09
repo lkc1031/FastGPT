@@ -13,7 +13,7 @@ async function bootstrap(port: number) {
     })
   );
 
-  // 使用全局异常过滤器
+  // 使用全局異常過濾器
   app.useGlobalFilters(new HttpExceptionFilter());
 
   app.useGlobalInterceptors(new ResponseInterceptor());

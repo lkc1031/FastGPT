@@ -101,7 +101,7 @@ export const storeNode2FlowNode = ({
     ...storeNode,
     avatar: template.avatar ?? storeNode.avatar,
     version: template.version || storeNode.version,
-    // template 中的输入必须都有
+    // template 中的輸入必須都有
     inputs: templateInputs
       .map<FlowNodeInputItemType>((templateInput) => {
         const storeInput =
@@ -119,7 +119,7 @@ export const storeNode2FlowNode = ({
         };
       })
       .concat(
-        // 合并 store 中有，template 中没有的输入
+        // 合併 store 中有，template 中沒有的輸入
         storeNode.inputs
           .filter((item) => !templateInputs.find((input) => input.key === item.key))
           .map((item) => {
@@ -203,7 +203,7 @@ export const computedNodeInputReference = ({
   }
   const parentId = node.parentNodeId;
   let sourceNodes: FlowNodeItemType[] = [];
-  // 根据 edge 获取所有的 source 节点（source节点会继续向前递归获取）
+  // 根據 edge 獲取所有的 source 節點（source節點會繼續向前遞歸獲取）
   const findSourceNode = (nodeId: string) => {
     const targetEdges = edges.filter((item) => item.target === nodeId || item.target === parentId);
     targetEdges.forEach((edge) => {
@@ -269,7 +269,7 @@ export const getRefData = ({
   };
 };
 
-// 根据数据类型，过滤无效的节点输出
+// 根據數據類型，過濾無效的節點輸出
 export const filterWorkflowNodeOutputsByType = (
   outputs: FlowNodeOutputItemType[],
   valueType: WorkflowIOValueTypeEnum
@@ -428,7 +428,7 @@ export const checkWorkflowNodeAndConnection = ({
         // check reference invalid
         const renderType = input.renderTypeList[input.selectedTypeIndex || 0];
         if (renderType === FlowNodeInputTypeEnum.reference) {
-          // 无效引用时，返回 true
+          // 無效引用時，返回 true
           const checkValueValid = (value: ReferenceItemValueType) => {
             const nodeId = value?.[0];
             const outputId = value?.[1];
@@ -446,7 +446,7 @@ export const checkWorkflowNodeAndConnection = ({
 
           if (input.valueType?.startsWith('array')) {
             input.value = input.value ?? [];
-            // 如果内容为空，则报错
+            // 如果內容爲空，則報錯
             if (input.required && input.value.length === 0) {
               return true;
             }

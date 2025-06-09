@@ -25,6 +25,6 @@ export async function hasSameValue({
   });
 
   if (count > 0) {
-    return Promise.reject('已经存在完全一致的数据');
+    return Promise.reject('已經存在完全一致的數據');
   }
 }

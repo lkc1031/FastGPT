@@ -67,7 +67,7 @@ chrome.storage.local.get(["showChatBot"], function (result) {
         switchBtn.addEventListener('click', function () {
             chrome.storage.local.get(["configs", "chatbotSrc",], function (result) {
                 const configs = result.configs || [];
-                // 创建或更新列表容器
+                // 創建或更新列表容器
                 let listWrapper = document.getElementById('configList');
                 if (listWrapper) {
                     iframeWrapper.removeChild(listWrapper);
@@ -86,19 +86,19 @@ chrome.storage.local.get(["showChatBot"], function (result) {
                 const iframeWrapperRect = iframeWrapper.getBoundingClientRect();
                 const switchBtnOffsetRight =  iframeWrapperRect.right - switchBtnRect.right;
                 const switchBtnOffsetTop = switchBtnRect.top - iframeWrapperRect.top;
-                // 确保listWrapper存在并调整其位置
+                // 確保listWrapper存在並調整其位置
                 listWrapper.style.right = switchBtnOffsetRight + 'px';
                 listWrapper.style.top = (switchBtnOffsetTop + switchBtn.offsetHeight) + 'px';
                 listWrapper.style.padding = '5px';
-                // 显示所有chatbot名称
+                // 顯示所有chatbot名稱
                 configs.forEach((config) => {
                     const item = document.createElement('div');
                     item.textContent = config.name;
-                    item.className = 'ant-dropdown-menu-item'; // 使用 Ant Design 的类名
+                    item.className = 'ant-dropdown-menu-item'; // 使用 Ant Design 的類名
                     item.style.cursor = 'pointer';
                     item.style.padding = '5px 16px';
                     item.style.borderRadius = '4px';
-                    // 设置默认样式
+                    // 設置默認樣式
                     item.style.position = 'relative';
                     item.style.lineHeight = '22px';
                     item.style.color = '#606266';
@@ -111,23 +111,23 @@ chrome.storage.local.get(["showChatBot"], function (result) {
                     item.style.borderBottomStyle = 'solid';
                     item.style.borderBottomWidth = '1px';
 
-                    // 设置选中样式
+                    // 設置選中樣式
                     if (config.url === result.chatbotSrc) {
                         item.style.color = '#1890ff';
                         item.style.fontWeight = 'bold';
                         item.style.background = '#e6f7ff';
                     }
 
-                    // 为每个列表项添加点击事件监听器
+                    // 爲每個列表項添加點擊事件監聽器
                     item.addEventListener('click', function () {
-                        // 更新样式，移除其他项的蓝色
+                        // 更新樣式，移除其他項的藍色
                         const items = listWrapper.querySelectorAll('.ant-dropdown-menu-item');
                         items.forEach((i) => {
                             i.style.color = '#606266';
                             i.style.fontWeight = 'normal';
                             i.style.background = '#fff';
                         });
-                        // 设置当前项为蓝色
+                        // 設置當前項爲藍色
                         item.style.color = '#1890ff';
                         item.style.fontWeight = 'bold';
                         item.style.background = '#e6f7ff';
@@ -144,7 +144,7 @@ chrome.storage.local.get(["showChatBot"], function (result) {
                     listWrapper.appendChild(item);
                 });
 
-                // 将列表容器添加到body中或确保它已经存在
+                // 將列表容器添加到body中或確保它已經存在
                 if (!iframeWrapper.contains(listWrapper)) {
                     iframeWrapper.appendChild(listWrapper);
                 }
@@ -193,7 +193,7 @@ chrome.storage.local.get(["showChatBot"], function (result) {
                 let botSrc = result.chatbotSrc;
                 if (!botSrc || botSrc === 'about:blank' || botSrc === '') {
                     console.log("Can't find botSrc");
-                    iframe.src = 'data:text/html;charset=utf-8,<html><head><style>body { margin: 0; padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100%; }</style></head><body>没有配置机器人地址</body></html>';
+                    iframe.src = 'data:text/html;charset=utf-8,<html><head><style>body { margin: 0; padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100%; }</style></head><body>沒有配置機器人地址</body></html>';
                     chatWindow.style.visibility = 'unset';
                     return;
                 }
@@ -376,7 +376,7 @@ chrome.storage.local.get(["showChatBot"], function (result) {
             let lastDownY = 0;
             let resizeDirection = '';
 
-            // 创建八个调整大小的句柄
+            // 創建八個調整大小的句柄
             const handles = ['nw-resize', 'ne-resize', 'sw-resize', 'se-resize', 'n-resize', 's-resize', 'w-resize', 'e-resize'];
             const directions = ['tl', 'tr', 'bl', 'br', 't', 'b', 'l', 'r'];
 
@@ -451,7 +451,7 @@ chrome.storage.local.get(["showChatBot"], function (result) {
                 lastDownX = e.clientX;
                 lastDownY = e.clientY;
                 resizeDirection = direction;
-                iframeWrapper.style.pointerEvents = 'none'; // 禁用 iframe 的鼠标事件
+                iframeWrapper.style.pointerEvents = 'none'; // 禁用 iframe 的鼠標事件
                 e.preventDefault();
             }
 
@@ -519,9 +519,9 @@ chrome.storage.local.get(["showChatBot"], function (result) {
             function handleResizeMouseUp() {
                 console.log('handleResizeMouseUp');
                 if (isResizing) {
-                    isResizing = false; // 将 isResizing 重置为 false
+                    isResizing = false; // 將 isResizing 重置爲 false
                     enableResize(iframeWrapper);
-                    iframeWrapper.style.pointerEvents = 'auto'; // 恢复 iframe 的鼠标事件
+                    iframeWrapper.style.pointerEvents = 'auto'; // 恢復 iframe 的鼠標事件
                     chrome.storage.local.set({
                         chatBotWidth: iframeWrapper.offsetWidth,
                         chatBotHeight: iframeWrapper.offsetHeight

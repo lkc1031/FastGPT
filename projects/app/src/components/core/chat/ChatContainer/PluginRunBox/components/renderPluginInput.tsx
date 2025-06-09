@@ -117,7 +117,7 @@ const FileSelector = ({
         </Box>
         {input.description && <QuestionTip ml={2} label={t(input.description as any)} />}
         <Box flex={1} />
-        {/* 有历史记录，说明是已经跑过了，不能再新增了 */}
+        {/* 有歷史記錄，說明是已經跑過了，不能再新增了 */}
         <Button
           isDisabled={histories.length !== 0}
           leftIcon={<MyIcon name={selectFileIcon as any} w={'16px'} />}

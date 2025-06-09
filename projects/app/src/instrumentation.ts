@@ -6,7 +6,7 @@ import { exit } from 'process';
 export async function register() {
   try {
     if (process.env.NEXT_RUNTIME === 'nodejs') {
-      // 基础系统初始化
+      // 基礎系統初始化
       const [
         { connectMongo },
         { connectionMongo, connectionLogMongo, MONGO_URL, MONGO_LOG_URL },
@@ -35,7 +35,7 @@ export async function register() {
         import('@fastgpt/service/core/ai/config/utils')
       ]);
 
-      // 执行初始化流程
+      // 執行初始化流程
       systemStartCb();
       initGlobalVariables();
 
@@ -52,7 +52,7 @@ export async function register() {
         console.error('Preload worker error', error);
       }
 
-      // 异步加载
+      // 異步加載
       initSystemPluginGroups();
       initAppTemplateTypes();
       getSystemPluginCb();

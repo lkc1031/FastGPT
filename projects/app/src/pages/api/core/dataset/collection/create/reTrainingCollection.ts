@@ -15,7 +15,7 @@ type RetrainingCollectionResponse = {
   collectionId: string;
 };
 
-// 获取集合并处理
+// 獲取集合並處理
 async function handler(
   req: ApiRequestProps<reTrainingDatasetFileCollectionParams>
 ): Promise<RetrainingCollectionResponse> {
@@ -25,7 +25,7 @@ async function handler(
     return Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { collection, teamId, tmbId } = await authDatasetCollection({
     req,
     authToken: true,

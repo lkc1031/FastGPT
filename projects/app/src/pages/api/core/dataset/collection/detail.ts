@@ -22,7 +22,7 @@ async function handler(req: NextApiRequest): Promise<DatasetCollectionItemType> 
     return Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { collection, permission } = await authDatasetCollection({
     req,
     authToken: true,

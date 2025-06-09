@@ -37,7 +37,7 @@ const SimpleEdit = () => {
       );
     }
 
-    // 读取旧的存储记录
+    // 讀取舊的存儲記錄
     const pastSnapshot = (() => {
       try {
         const pastSnapshot = localStorage.getItem(`${appDetail._id}-past`);
@@ -75,7 +75,7 @@ const SimpleEdit = () => {
       return setAppForm(pastState);
     }
 
-    // 无旧的记录，正常初始化
+    // 無舊的記錄，正常初始化
     if (past.length === 0) {
       const appForm = appWorkflow2Form({
         nodes: appDetail.modules,

@@ -1,18 +1,18 @@
-# 目录说明
+# 目錄說明
 
-该目录为 FastGPT 主项目。
+該目錄爲 FastGPT 主項目。
 
-- app fastgpt 核心应用。
-- sandbox 沙盒项目，用于运行工作流里的代码执行 （需求python环境为python:3.11，额外安装的包请于requirements.txt填写，在运行时会读取安装。
+- app fastgpt 核心應用。
+- sandbox 沙盒項目，用於運行工作流裏的代碼執行 （需求python環境爲python:3.11，額外安裝的包請於requirements.txt填寫，在運行時會讀取安裝。
 
-  - 注意个别安装的包可能需要额外安装库（如pandas需要安装libffi））。
+  - 注意個別安裝的包可能需要額外安裝庫（如pandas需要安裝libffi））。
 
-  - 新加入python的包遇见超时或者权限拦截的问题(确定不是自己的语法问题)，请进入docker容器内部执行以下指令：
+  - 新加入python的包遇見超時或者權限攔截的問題(確定不是自己的語法問題)，請進入docker容器內部執行以下指令：
 
   ```shell
-    docker exec -it 《替换成容器名》 /bin/bash
+    docker exec -it 《替換成容器名》 /bin/bash
     chmod -x testSystemCall.sh
     bash ./testSystemCall.sh
   ```
 
-  然后将新的数组替换或追加到src下sandbox的constants.py中的SYSTEM_CALLS数组即可
+  然後將新的數組替換或追加到src下sandbox的constants.py中的SYSTEM_CALLS數組即可

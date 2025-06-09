@@ -12,12 +12,12 @@ export type OutLinkUpdateQuery = {};
 
 // {
 // _id?: string; // Outlink 的 ID
-// name: string; // Outlink 的名称
-// responseDetail?: boolean; // 是否开启详细回复
-// immediateResponse?: string; // 立即回复的内容
-// defaultResponse?: string; // 默认回复的内容
+// name: string; // Outlink 的名稱
+// responseDetail?: boolean; // 是否開啓詳細回覆
+// immediateResponse?: string; // 立即回覆的內容
+// defaultResponse?: string; // 默認回覆的內容
 // limit?: OutLinkSchema<T>['limit']; // 限制
-// app?: T; // 平台的配置
+// app?: T; // 平臺的配置
 // }
 export type OutLinkUpdateBody = OutLinkEditType;
 

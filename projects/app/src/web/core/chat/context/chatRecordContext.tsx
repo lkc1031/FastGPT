@@ -44,7 +44,7 @@ export const ChatRecordContext = createContext<ChatRecordContextType>({
 });
 
 /* 
-    具体对话记录的上下文
+    具體對話記錄的上下文
 */
 const ChatRecordContextProvider = ({
   children,

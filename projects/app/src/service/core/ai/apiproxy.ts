@@ -6,27 +6,27 @@ const token = process.env.API_PROXY_TOKEN;
 
 const instance = axios.create({
   baseURL: url,
-  timeout: 60000, // 超时时间
+  timeout: 60000, // 超時時間
   headers: {
     Authorization: `Bearer ${token}`
   }
 });
 
 /**
- * 响应数据检查
+ * 響應數據檢查
  */
 const checkRes = (data: any) => {
   if (data === undefined) {
     addLog.info('api proxy data is empty');
-    return Promise.reject('服务器异常');
+    return Promise.reject('服務器異常');
   }
   return data.data;
 };
 const responseError = (err: any) => {
-  console.log('error->', '请求错误', err);
+  console.log('error->', '請求錯誤', err);
 
   if (!err) {
-    return Promise.reject({ message: '未知错误' });
+    return Promise.reject({ message: '未知錯誤' });
   }
   if (typeof err === 'string') {
     return Promise.reject({ message: err });

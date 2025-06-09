@@ -9,8 +9,8 @@ import { AppTypeEnum } from '@fastgpt/global/core/app/constants';
 import { MongoAppVersion } from '@fastgpt/service/core/app/version/schema';
 
 /* 
-  1. 先读取 HTTP plugin 内容,并找到所有的子plugin,然后事务批量创建,最后修改 inited
-  2. 读取剩下未 inited 的plugin,逐一创建
+  1. 先讀取 HTTP plugin 內容,並找到所有的子plugin,然後事務批量創建,最後修改 inited
+  2. 讀取剩下未 inited 的plugin,逐一創建
 */
 
 let success = 0;
@@ -30,7 +30,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function initHttp(teamId?: string): Promise<any> {
-  /* 读取http插件和他的children */
+  /* 讀取http插件和他的children */
   const plugin = await MongoPlugin.findOne({
     ...(teamId && { teamId }),
     type: PluginTypeEnum.folder,
@@ -45,7 +45,7 @@ async function initHttp(teamId?: string): Promise<any> {
   }).lean();
 
   await mongoSessionRun(async (session) => {
-    /* 创建HTTP插件作为目录 */
+    /* 創建HTTP插件作爲目錄 */
     const [{ _id }] = await MongoApp.create(
       [
         {
@@ -66,7 +66,7 @@ async function initHttp(teamId?: string): Promise<any> {
       { session, ordered: true }
     );
 
-    /* 批量创建子插件 */
+    /* 批量創建子插件 */
     for await (const item of children) {
       const [{ _id: newPluginId }] = await MongoApp.create(
         [

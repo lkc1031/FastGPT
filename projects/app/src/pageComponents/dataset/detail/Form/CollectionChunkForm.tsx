@@ -100,7 +100,7 @@ export type CollectionChunkFormType = {
   autoIndexes: boolean;
 
   // Chunk setting
-  chunkSettingMode: ChunkSettingModeEnum; // 系统参数/自定义参数
+  chunkSettingMode: ChunkSettingModeEnum; // 系統參數/自定義參數
   chunkSplitMode: DataChunkSplitModeEnum;
   // Paragraph split
   paragraphChunkAIMode: ParagraphChunkAIModeEnum;
@@ -590,7 +590,7 @@ export const collectionChunkForm2StoreChunkData = ({
     qaPrompt
   } = data;
 
-  // 根据处理方式，获取 auto 和 custom 的参数。
+  // 根據處理方式，獲取 auto 和 custom 的參數。
   const trainingModeSize: {
     autoChunkSize: number;
     autoIndexSize: number;
@@ -621,7 +621,7 @@ export const collectionChunkForm2StoreChunkData = ({
     }
   })();
 
-  // 获取真实参数
+  // 獲取真實參數
   const {
     chunkSize: formatChunkIndex,
     indexSize: formatIndexSize,

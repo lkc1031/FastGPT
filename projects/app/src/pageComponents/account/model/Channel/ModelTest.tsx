@@ -33,7 +33,7 @@ type ModelTestItem = {
   status: 'waiting' | 'running' | 'success' | 'error';
   message?: string;
   duration?: number;
-  loading?: boolean; // 单个模型的loading状态
+  loading?: boolean; // 單個模型的loading狀態
 };
 
 const ModelTest = ({

@@ -56,7 +56,7 @@ export const formatScore = (score: ScoreItemType[]) => {
     };
   }
 
-  // rrf -> rerank -> embedding -> fullText 优先级
+  // rrf -> rerank -> embedding -> fullText 優先級
   let rrfScore: ScoreItemType | undefined = undefined;
   let reRankScore: ScoreItemType | undefined = undefined;
   let embeddingScore: ScoreItemType | undefined = undefined;

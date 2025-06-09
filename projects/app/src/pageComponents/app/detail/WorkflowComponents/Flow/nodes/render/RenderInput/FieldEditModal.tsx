@@ -82,7 +82,7 @@ const FieldModal = ({
       const isChangeKey = defaultInput.key !== data.key;
 
       if (keys.includes(data.key)) {
-        // 只要编辑状态，且未改变key，就不提示
+        // 只要編輯狀態，且未改變key，就不提示
         if (!isEdit || isChangeKey) {
           toast({
             status: 'warning',

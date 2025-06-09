@@ -52,8 +52,8 @@ type ChatContextType = {
 };
 
 /* 
-  主要存放历史记录数据。
-  同时还存放外部链接鉴权信息，不会在 chatTest 下使用
+  主要存放歷史記錄數據。
+  同時還存放外部鏈接鑑權信息，不會在 chatTest 下使用
 */
 export const ChatContext = createContext<ChatContextType>({
   // forbidLoadChat: undefined,

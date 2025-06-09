@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         const frameShareId = searchParams.get('shareId') || '';
         let frameChatId = searchParams.get('chatId') || '';
 
-        // 移除已有的拦截器（如果存在）
+        // 移除已有的攔截器（如果存在）
         if (requestInterceptor) {
             chrome.webRequest.onBeforeRequest.removeListener(requestInterceptor);
         }

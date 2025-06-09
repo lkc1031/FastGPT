@@ -564,8 +564,8 @@ export const parsePluginFromCurlString = (
       },
       {
         nodeId: 'vumlECDQTjeC',
-        name: 'HTTP 请求',
-        intro: '可以发出一个 HTTP 请求，实现更为复杂的操作（联网搜索、数据库查询等）',
+        name: 'HTTP 請求',
+        intro: '可以發出一個 HTTP 請求，實現更爲複雜的操作（聯網搜索、數據庫查詢等）',
         avatar: 'core/workflow/template/httpRequest',
         flowNodeType: FlowNodeTypeEnum.httpRequest468,
         showStatus: true,
@@ -581,7 +581,7 @@ export const parsePluginFromCurlString = (
             valueType: WorkflowIOValueTypeEnum.dynamic,
             label: '',
             required: false,
-            description: '接收前方节点的输出值作为变量，这些变量可以被 HTTP 请求参数使用。',
+            description: '接收前方節點的輸出值作爲變量，這些變量可以被 HTTP 請求參數使用。',
             customInputConfig: {
               selectValueTypeList: [
                 WorkflowIOValueTypeEnum.string,
@@ -639,7 +639,7 @@ export const parsePluginFromCurlString = (
             valueType: WorkflowIOValueTypeEnum.string,
             label: '',
             description:
-              '新的 HTTP 请求地址。如果出现两个"请求地址"，可以删除该模块重新加入，会拉取最新的模块配置。',
+              '新的 HTTP 請求地址。如果出現兩個"請求地址"，可以刪除該模塊重新加入，會拉取最新的模塊配置。',
             placeholder: 'https://api.ai.com/getInventory',
             required: false,
             value: url,
@@ -654,7 +654,7 @@ export const parsePluginFromCurlString = (
             value: referenceHeaders,
             label: '',
             description:
-              '自定义请求头，请严格填入 JSON 字符串。\n1. 确保最后一个属性没有逗号\n2. 确保 key 包含双引号\n例如：{"Authorization":"Bearer xxx"}',
+              '自定義請求頭，請嚴格填入 JSON 字符串。\n1. 確保最後一個屬性沒有逗號\n2. 確保 key 包含雙引號\n例如：{"Authorization":"Bearer xxx"}',
             placeholder: 'common:core.module.input.description.Http Request Header',
             required: false,
             valueDesc: '',
@@ -667,7 +667,7 @@ export const parsePluginFromCurlString = (
             valueType: WorkflowIOValueTypeEnum.any,
             value: referenceParams,
             description:
-              '新的 HTTP 请求地址。如果出现两个“请求地址”，可以删除该模块重新加入，会拉取最新的模块配置。',
+              '新的 HTTP 請求地址。如果出現兩個“請求地址”，可以刪除該模塊重新加入，會拉取最新的模塊配置。',
             label: '',
             required: false,
             valueDesc: '',
@@ -717,7 +717,7 @@ export const parsePluginFromCurlString = (
             key: 'system_addOutputParam',
             type: FlowNodeOutputTypeEnum.dynamic,
             valueType: WorkflowIOValueTypeEnum.dynamic,
-            label: '输出字段提取',
+            label: '輸出字段提取',
             customFieldConfig: {
               selectValueTypeList: [
                 WorkflowIOValueTypeEnum.string,
@@ -739,14 +739,14 @@ export const parsePluginFromCurlString = (
               showDescription: false,
               showDefaultValue: false
             },
-            description: '可以通过 JSONPath 语法来提取响应值中的指定字段',
+            description: '可以通過 JSONPath 語法來提取響應值中的指定字段',
             valueDesc: ''
           },
           {
             id: 'error',
             key: 'error',
-            label: '请求错误',
-            description: 'HTTP请求错误信息，成功时返回空',
+            label: '請求錯誤',
+            description: 'HTTP請求錯誤信息，成功時返回空',
             valueType: WorkflowIOValueTypeEnum.object,
             type: FlowNodeOutputTypeEnum.static,
             valueDesc: ''
@@ -755,8 +755,8 @@ export const parsePluginFromCurlString = (
             id: 'httpRawResponse',
             key: 'httpRawResponse',
             required: true,
-            label: '原始响应',
-            description: 'HTTP请求的原始响应。只能接受字符串或JSON类型响应数据。',
+            label: '原始響應',
+            description: 'HTTP請求的原始響應。只能接受字符串或JSON類型響應數據。',
             valueType: WorkflowIOValueTypeEnum.any,
             type: FlowNodeOutputTypeEnum.static,
             valueDesc: ''

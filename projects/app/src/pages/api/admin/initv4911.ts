@@ -8,7 +8,7 @@ import { DatasetTypeEnum } from '@fastgpt/global/core/dataset/constants';
 async function handler(req: NextApiRequest, _res: NextApiResponse) {
   await authCert({ req, authRoot: true });
 
-  console.log('更新所有 API 知识库');
+  console.log('更新所有 API 知識庫');
 
   const datasets = await MongoDataset.find({
     type: {
