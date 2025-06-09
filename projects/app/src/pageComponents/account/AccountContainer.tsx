@@ -22,6 +22,7 @@ export enum TabEnum {
   'apikey' = 'apikey',
   'loginout' = 'loginout',
   'team' = 'team',
+  'userCombination' = 'userCombination',
   'model' = 'model'
 }
 
@@ -48,6 +49,11 @@ const AccountContainer = ({
       icon: 'support/user/userLight',
       label: t('account:personal_information'),
       value: TabEnum.info
+    },
+    {
+      icon: 'support/user/usersLight',
+      label: t('account:user_combination'),
+      value: TabEnum.userCombination
     },
     ...(feConfigs?.isPlus
       ? [
