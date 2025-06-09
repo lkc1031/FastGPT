@@ -44,17 +44,17 @@ import { getI18nDatasetType } from '@fastgpt/service/support/operationLog/util';
 export type DatasetUpdateQuery = {};
 export type DatasetUpdateResponse = any;
 
-// 更新知识库接口
+// 更新知識庫接口
 // 包括如下功能：
-// 1. 更新应用的信息（包括名称，类型，头像，介绍等）
-// 2. 更新数据库的配置信息
-// 3. 移动知识库
-// 操作权限：
-// 1. 更新信息和配置编排需要有知识库的写权限
-// 2. 移动应用需要有
-//  (1) 父目录的管理权限
-//  (2) 目标目录的管理权限
-//  (3) 如果从根目录移动或移动到根目录，需要有团队的应用创建权限
+// 1. 更新應用的信息（包括名稱，類型，頭像，介紹等）
+// 2. 更新數據庫的配置信息
+// 3. 移動知識庫
+// 操作權限：
+// 1. 更新信息和配置編排需要有知識庫的寫權限
+// 2. 移動應用需要有
+//  (1) 父目錄的管理權限
+//  (2) 目標目錄的管理權限
+//  (3) 如果從根目錄移動或移動到根目錄，需要有團隊的應用創建權限
 async function handler(
   req: ApiRequestProps<DatasetUpdateBody, DatasetUpdateQuery>,
   _res: ApiResponseType<any>

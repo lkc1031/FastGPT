@@ -29,7 +29,7 @@ async function handler(
   const { parentId, name, intro, avatar, pluginData } = req.body;
 
   if (!name || !pluginData) {
-    return Promise.reject('缺少参数');
+    return Promise.reject('缺少參數');
   }
 
   const { teamId, tmbId, userId } = parentId

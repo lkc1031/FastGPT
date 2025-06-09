@@ -305,7 +305,7 @@ export const useWorkflow = () => {
     const positionChange = change.type === 'position' && change.dragging ? change : undefined;
 
     if (positionChange?.position) {
-      // 只判断，3000px 内的 nodes，并按从近到远的顺序排序
+      // 只判斷，3000px 內的 nodes，並按從近到遠的順序排序
       const filterNodes = nodes
         .filter((node) => {
           if (!positionChange.position) return false;
@@ -351,9 +351,9 @@ export const useWorkflow = () => {
 
     if (!node || node.data.parentNodeId) return;
 
-    // 获取所有与当前节点相交的节点
+    // 獲取所有與當前節點相交的節點
     const intersections = getIntersectingNodes(node);
-    // 获取所有与当前节点相交的节点中，类型为 loop 的节点且它不能是折叠状态
+    // 獲取所有與當前節點相交的節點中，類型爲 loop 的節點且它不能是摺疊狀態
     const parentNode = intersections.find(
       (item) => !item.data.isFolded && item.type === FlowNodeTypeEnum.loop
     );
@@ -372,7 +372,7 @@ export const useWorkflow = () => {
         key: 'parentNodeId',
         value: parentNode.id
       });
-      // 删除当前节点与其他节点的连接
+      // 刪除當前節點與其他節點的連接
       setEdges((state) =>
         state.filter((edge) => edge.source !== node.id && edge.target !== node.id)
       );

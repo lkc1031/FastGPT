@@ -114,9 +114,9 @@ describe('storeNode2FlowNode', () => {
     expect(result.data.outputs).toHaveLength(2);
   });
 
-  // 这两个测试涉及到模拟冲突，请运行单独的测试文件:
-  // - utils.deprecated.test.ts: 测试 deprecated inputs/outputs
-  // - utils.version.test.ts: 测试 version 和 avatar inheritance
+  // 這兩個測試涉及到模擬衝突，請運行單獨的測試文件:
+  // - utils.deprecated.test.ts: 測試 deprecated inputs/outputs
+  // - utils.version.test.ts: 測試 version 和 avatar inheritance
 });
 
 describe('filterWorkflowNodeOutputsByType', () => {

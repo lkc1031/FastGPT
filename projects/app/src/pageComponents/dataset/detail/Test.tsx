@@ -259,7 +259,7 @@ const Test = ({ datasetId }: { datasetId: string }) => {
                     cursor={'pointer'}
                     onClick={() => {
                       fileDownload({
-                        text: `"问题"\n"问题1"\n"问题2"\n"问题3"`,
+                        text: `"問題"\n"問題1"\n"問題2"\n"問題3"`,
                         type: 'text/csv',
                         filename: 'Test Template'
                       });

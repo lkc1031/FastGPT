@@ -34,7 +34,7 @@ type ChatBoxDataType = {
   };
 };
 
-// 知识库引用相关 type
+// 知識庫引用相關 type
 export type GetQuoteDataBasicProps = {
   appId: string;
   chatId: string;
@@ -115,7 +115,7 @@ export const ChatItemContext = createContext<ChatItemContextType>({
 });
 
 /* 
-    Chat 对象的上下文
+    Chat 對象的上下文
 */
 const ChatItemContextProvider = ({
   children,

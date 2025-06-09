@@ -1,6 +1,6 @@
 import type { DatasetCiteItemType } from '@fastgpt/global/core/dataset/type';
 
-// 获取对话时间时，引用的内容
+// 獲取對話時間時，引用的內容
 export function processChatTimeFilter(
   dataList: DatasetCiteItemType[],
   chatTime: Date

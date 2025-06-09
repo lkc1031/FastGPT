@@ -144,7 +144,7 @@ ${replaceVariable(Prompt_AgentQA.fixedText, { text })}`;
     const inputTokens = usage?.prompt_tokens || (await countGptMessagesTokens(messages));
     const outputTokens = usage?.completion_tokens || (await countPromptTokens(answer));
 
-    const qaArr = formatSplitText({ answer, rawText: text, llmModel: modelData }); // 格式化后的QA对
+    const qaArr = formatSplitText({ answer, rawText: text, llmModel: modelData }); // 格式化後的QA對
 
     // get vector and insert
     await pushDataListToTrainingQueueByCollectionId({
@@ -205,11 +205,11 @@ function formatSplitText({
   rawText: string;
   llmModel: LLMModelItemType;
 }) {
-  answer = answer.replace(/\\n/g, '\n'); // 将换行符替换为空格
-  const regex = /Q\d+:(\s*)(.*)(\s*)A\d+:(\s*)([\s\S]*?)(?=Q\d|$)/g; // 匹配Q和A的正则表达式
-  const matches = answer.matchAll(regex); // 获取所有匹配到的结果
+  answer = answer.replace(/\\n/g, '\n'); // 將換行符替換爲空格
+  const regex = /Q\d+:(\s*)(.*)(\s*)A\d+:(\s*)([\s\S]*?)(?=Q\d|$)/g; // 匹配Q和A的正則表達式
+  const matches = answer.matchAll(regex); // 獲取所有匹配到的結果
 
-  const result: PushDatasetDataChunkProps[] = []; // 存储最终的结果
+  const result: PushDatasetDataChunkProps[] = []; // 存儲最終的結果
   for (const match of matches) {
     const q = match[2] || '';
     const a = match[5] || '';

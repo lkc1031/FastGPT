@@ -293,7 +293,7 @@ const VariableEdit = ({
                       }}
                       onClick={() => {
                         const defaultValIsNumber = !isNaN(Number(value.defaultValue));
-                        // 如果切换到 numberInput，不是数字，则清空
+                        // 如果切換到 numberInput，不是數字，則清空
                         if (
                           item.value === VariableInputEnum.select ||
                           (item.value === VariableInputEnum.numberInput && !defaultValIsNumber)

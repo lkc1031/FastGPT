@@ -44,7 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     if (!chatId || !dataId) {
       return res.json({
-        [NodeOutputKeyEnum.answerText]: `\\n\\n**自动反馈调试**: "${feedbackText}"\\n\\n`,
+        [NodeOutputKeyEnum.answerText]: `\\n\\n**自動反饋調試**: "${feedbackText}"\\n\\n`,
         text: feedbackText
       });
     }

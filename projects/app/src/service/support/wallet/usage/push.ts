@@ -20,7 +20,7 @@ export const pushQAUsage = async ({
   outputTokens: number;
   billId: string;
 }) => {
-  // 计算价格
+  // 計算價格
   const { totalPoints } = formatModelChars2Points({
     model,
     modelType: ModelTypeEnum.llm,
@@ -113,7 +113,7 @@ export const pushGenerateVectorUsage = ({
 
   const totalPoints = totalVector + extensionTotalPoints + deepSearchTotalPoints;
 
-  // 插入 Bill 记录
+  // 插入 Bill 記錄
   if (billId) {
     concatUsage({
       teamId,

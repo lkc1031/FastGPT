@@ -19,7 +19,7 @@ export type ImportSourceItemType = {
   sourceSize?: string;
   isUploading?: boolean;
   uploadedFileRate?: number;
-  dbFileId?: string; // 存储在数据库里的文件Id
+  dbFileId?: string; // 存儲在數據庫裏的文件Id
 
   file?: File; // Local file
 

@@ -11,15 +11,15 @@ import { DatasetErrEnum } from '@fastgpt/global/common/error/code/dataset';
 import { getFlatAppResponses } from '@/global/core/chat/utils';
 
 /* 
-  检查chat的权限：
-  1. 无 chatId，仅校验 cookie、shareChat、teamChat 秘钥是否合法
-  2. 有 chatId，校验用户是否有权限操作该 chat
+  檢查chat的權限：
+  1. 無 chatId，僅校驗 cookie、shareChat、teamChat 祕鑰是否合法
+  2. 有 chatId，校驗用戶是否有權限操作該 chat
 
-  * cookie + appId 校验
-  * shareId + outLinkUid 校验
-  * teamId + teamToken + appId 校验
+  * cookie + appId 校驗
+  * shareId + outLinkUid 校驗
+  * teamId + teamToken + appId 校驗
 
-  Chat没有读写的权限之分，鉴权过了，都可以操作。
+  Chat沒有讀寫的權限之分，鑑權過了，都可以操作。
 */
 const defaultResponseShow = {
   responseDetail: true,
@@ -217,7 +217,7 @@ export const authCollectionInChat = async ({
 
     if (!chatItem) return Promise.reject(DatasetErrEnum.unAuthDatasetCollection);
 
-    // 找 responseData 里，是否有该文档 id
+    // 找 responseData 裏，是否有該文檔 id
     const flatResData = getFlatAppResponses(chatItem.responseData || []);
 
     const quoteListSet = new Set(

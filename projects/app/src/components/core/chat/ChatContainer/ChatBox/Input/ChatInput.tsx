@@ -176,7 +176,7 @@ const ChatInput = ({
               return;
             }
 
-            // 全选内容
+            // 全選內容
             // @ts-ignore
             e.key === 'a' && e.ctrlKey && e.target?.select();
 

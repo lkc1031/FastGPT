@@ -34,7 +34,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
     return Promise.reject(i18nT('common:user.Password has no change'));
   }
 
-  // 更新对应的记录
+  // 更新對應的記錄
   await MongoUser.findByIdAndUpdate(userId, {
     password: newPsw,
     passwordUpdateTime: new Date()

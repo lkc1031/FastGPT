@@ -17,8 +17,8 @@ import { addDays } from 'date-fns';
 
 /* 
   check dataset.files data. If there is no match in dataset.collections, delete it
-  可能异常情况:
-  1. 上传了文件，未成功创建集合
+  可能異常情況:
+  1. 上傳了文件，未成功創建集合
 */
 export async function checkInvalidDatasetFiles(start: Date, end: Date) {
   let deleteFileAmount = 0;
@@ -97,12 +97,12 @@ export const removeExpiredChatFiles = async () => {
 };
 
 /* 
-  检测无效的 Mongo 数据
-  异常情况：
-  1. 训练过程删除知识库，可能导致还会有新的数据继续插入，导致无效。
+  檢測無效的 Mongo 數據
+  異常情況：
+  1. 訓練過程刪除知識庫，可能導致還會有新的數據繼續插入，導致無效。
 */
 export async function checkInvalidDatasetData(start: Date, end: Date) {
-  // 1. 获取时间范围的所有data
+  // 1. 獲取時間範圍的所有data
   const rows = await MongoDatasetData.find(
     {
       updateTime: {
@@ -113,7 +113,7 @@ export async function checkInvalidDatasetData(start: Date, end: Date) {
     '_id teamId datasetId collectionId'
   ).lean();
 
-  // 2. 合并所有的collectionId
+  // 2. 合併所有的collectionId
   const map = new Map<string, { teamId: string; datasetId: string; collectionId: string }>();
   for (const item of rows) {
     const collectionId = String(item.collectionId);
@@ -131,7 +131,7 @@ export async function checkInvalidDatasetData(start: Date, end: Date) {
 
   for await (const item of list) {
     try {
-      // 3. 查看该collection是否存在，不存在，则删除对应的数据
+      // 3. 查看該collection是否存在，不存在，則刪除對應的數據
       const collection = await MongoDatasetCollection.findOne(
         { _id: item.collectionId },
         '_id'

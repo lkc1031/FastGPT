@@ -32,10 +32,10 @@ async function handler(
   const { pageSize = 20, offset } = parsePaginationRequest(req);
 
   if (!appId) {
-    throw new Error('缺少参数');
+    throw new Error('缺少參數');
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, tmbId, app } = await authApp({
     req,
     authToken: true,

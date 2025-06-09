@@ -116,10 +116,10 @@ const Login = ({ ChineseRedirectUrl }: { ChineseRedirectUrl: string }) => {
       const country = res?.country;
       if (
         country &&
-        country === '中国' &&
-        res.prov !== '中国香港' &&
-        res.prov !== '中国澳门' &&
-        res.prov !== '中国台湾'
+        country === '中國' &&
+        res.prov !== '中國香港' &&
+        res.prov !== '中國澳門' &&
+        res.prov !== '中國臺灣'
       ) {
         onOpenRedirect();
       }

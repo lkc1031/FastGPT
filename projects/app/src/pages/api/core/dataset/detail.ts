@@ -22,7 +22,7 @@ async function handler(req: ApiRequestProps<Query>): Promise<DatasetItemType> {
     return Promise.reject(CommonErrEnum.missingParams);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { dataset, permission } = await authDataset({
     req,
     authToken: true,

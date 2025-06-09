@@ -256,10 +256,10 @@ const RenderList = React.memo(function RenderList({
         });
       }
 
-      // 判断是否可以直接添加工具,满足以下任一条件:
+      // 判斷是否可以直接添加工具,滿足以下任一條件:
       // 1. 有工具描述
-      // 2. 是模型选择类型
-      // 3. 是文件上传类型且:已开启文件上传、非必填、只有一个文件上传输入
+      // 2. 是模型選擇類型
+      // 3. 是文件上傳類型且:已開啓文件上傳、非必填、只有一個文件上傳輸入
       const hasInputForm =
         res.inputs.length > 0 &&
         res.inputs.some((input) => {
@@ -290,18 +290,18 @@ const RenderList = React.memo(function RenderList({
           return false;
         });
 
-      // 构建默认表单数据
+      // 構建默認表單數據
       const defaultForm = {
         ...res,
         inputs: res.inputs.map((input) => {
-          // 如果是模型选择类型,使用当前选中的模型
+          // 如果是模型選擇類型,使用當前選中的模型
           // if (input.renderTypeList.includes(FlowNodeInputTypeEnum.selectLLMModel)) {
           //   return {
           //     ...input,
           //     value: selectedModel.model
           //   };
           // }
-          // 如果是文件上传类型,设置为从工作流开始节点获取用户文件
+          // 如果是文件上傳類型,設置爲從工作流開始節點獲取用戶文件
           if (input.renderTypeList.includes(FlowNodeInputTypeEnum.fileSelect)) {
             return {
               ...input,

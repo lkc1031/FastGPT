@@ -74,7 +74,7 @@ export const aiproxyIdMap: Record<
     provider: 'Groq'
   },
   17: {
-    label: '阿里云',
+    label: '阿里雲',
     provider: 'Qwen'
   },
   40: {
@@ -86,19 +86,19 @@ export const aiproxyIdMap: Record<
     provider: 'DeepSeek'
   },
   13: {
-    label: '百度智能云 V2',
+    label: '百度智能雲 V2',
     provider: 'Ernie'
   },
   15: {
-    label: '百度智能云',
+    label: '百度智能雲',
     provider: 'Ernie'
   },
   16: {
-    label: '智谱 AI',
+    label: '智譜 AI',
     provider: 'ChatGLM'
   },
   18: {
-    label: '讯飞星火',
+    label: '訊飛星火',
     provider: 'SparkDesk'
   },
   25: {
@@ -114,11 +114,11 @@ export const aiproxyIdMap: Record<
     provider: 'MiniMax'
   },
   31: {
-    label: '零一万物',
+    label: '零一萬物',
     provider: 'Yi'
   },
   32: {
-    label: '阶跃星辰',
+    label: '階躍星辰',
     provider: 'StepFun'
   },
   43: {

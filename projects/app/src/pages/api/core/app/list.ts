@@ -28,13 +28,13 @@ export type ListAppBody = {
 };
 
 /*
-  获取 APP 列表权限
-  1. 校验 folder 权限和获取 team 权限（owner 单独处理）
-  2. 获取 team 下所有 app 权限。获取我的所有组。并计算出我所有的app权限。
-  3. 过滤我有的权限的 app，以及当前 parentId 的 app（由于权限继承问题，这里没法一次性根据 id 去获取）
-  4. 根据过滤条件获取 app 列表
-  5. 遍历搜索出来的 app，并赋予权限（继承的 app，使用 parent 的权限）
-  6. 再根据 read 权限进行一次过滤。
+  獲取 APP 列表權限
+  1. 校驗 folder 權限和獲取 team 權限（owner 單獨處理）
+  2. 獲取 team 下所有 app 權限。獲取我的所有組。並計算出我所有的app權限。
+  3. 過濾我有的權限的 app，以及當前 parentId 的 app（由於權限繼承問題，這裏沒法一次性根據 id 去獲取）
+  4. 根據過濾條件獲取 app 列表
+  5. 遍歷搜索出來的 app，並賦予權限（繼承的 app，使用 parent 的權限）
+  6. 再根據 read 權限進行一次過濾。
 */
 
 async function handler(req: ApiRequestProps<ListAppBody>): Promise<AppListItemType[]> {

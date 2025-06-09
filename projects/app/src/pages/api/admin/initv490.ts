@@ -60,10 +60,10 @@ const upgradePgVector = async () => {
 async function handler(req: NextApiRequest, _res: NextApiResponse) {
   await authCert({ req, authRoot: true });
 
-  console.log('升级 PG vector 插件');
+  console.log('升級 PG vector 插件');
   await upgradePgVector();
 
-  console.log('变更所有 collection 的 trainingType 为 chunk');
+  console.log('變更所有 collection 的 trainingType 爲 chunk');
   await updateCollections();
 
   console.log(

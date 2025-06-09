@@ -21,7 +21,7 @@ async function handler(
 
   pageSize = Math.min(pageSize, 30);
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, collection } = await authDatasetCollection({
     req,
     authToken: true,

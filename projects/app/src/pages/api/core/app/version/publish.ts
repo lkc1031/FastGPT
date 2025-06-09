@@ -82,7 +82,7 @@ async function handler(req: ApiRequestProps<PostPublishAppProps>, res: NextApiRe
         chatConfig,
         updateTime: new Date(),
         version: 'v2',
-        // 只有发布才会更新定时器
+        // 只有發佈纔會更新定時器
         ...(isPublish &&
           (chatConfig?.scheduledTriggerConfig?.cronString
             ? {

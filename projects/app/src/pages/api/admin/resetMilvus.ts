@@ -24,7 +24,7 @@ async function handler(
 ): Promise<resetMilvusResponse> {
   await authCert({ req, authRoot: true });
 
-  // 删除 milvus DatasetVectorTableName 表
+  // 刪除 milvus DatasetVectorTableName 表
   const milvus = new MilvusCtrl();
   const client = await milvus.getClient();
   await client.dropCollection({
@@ -38,7 +38,7 @@ async function handler(
   const rebuild = async (dataset: DatasetSchemaType, retry = 3) => {
     try {
       return mongoSessionRun(async (session) => {
-        // 更新数据状态进入重建
+        // 更新數據狀態進入重建
         const data = await MongoDatasetData.updateMany(
           {
             teamId: dataset.teamId,
@@ -55,7 +55,7 @@ async function handler(
         );
         dataLength += data.matchedCount;
 
-        // 插入数据进入训练库
+        // 插入數據進入訓練庫
         const max = global.systemEnv?.vectorMaxProcess || 10;
         const arr = new Array(max * 2).fill(0);
 
@@ -124,7 +124,7 @@ async function handler(
     }
   };
 
-  // 重置所有集合进入 rebuild 状态
+  // 重置所有集合進入 rebuild 狀態
   (async () => {
     for await (const dataset of datasets) {
       await rebuild(dataset);

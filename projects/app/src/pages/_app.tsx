@@ -23,7 +23,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-// 哪些路由有自定义 Head
+// 哪些路由有自定義 Head
 const routesWithCustomHead = [
   '/chat',
   '/chat/share',

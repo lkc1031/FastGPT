@@ -131,13 +131,13 @@ const WorkflowStatusContextProvider = ({ children }: { children: ReactNode }) =>
       const loopChilHeight =
         loopNode.data.inputs.find((node) => node.key === NodeInputKeyEnum.nodeHeight)?.value ?? 0;
 
-      // 初始化为第一个节点的边界
+      // 初始化爲第一個節點的邊界
       let minX = childNodes[0].position.x;
       let minY = childNodes[0].position.y;
       let maxX = childNodes[0].position.x + (childNodes[0].width || 0);
       let maxY = childNodes[0].position.y + (childNodes[0].height || 0);
 
-      // 遍历所有节点找出最小/最大边界
+      // 遍歷所有節點找出最小/最大邊界
       childNodes.forEach((node) => {
         const nodeWidth = node.width || 0;
         const nodeHeight = node.height || 0;

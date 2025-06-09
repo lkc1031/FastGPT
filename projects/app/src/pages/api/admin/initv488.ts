@@ -4,7 +4,7 @@ import { authCert } from '@fastgpt/service/support/permission/auth/common';
 import { MongoDataset } from '@fastgpt/service/core/dataset/schema';
 import { DatasetDefaultPermissionVal } from '@fastgpt/global/support/permission/dataset/constant';
 
-/* pg 中的数据搬到 mongo dataset.datas 中，并做映射 */
+/* pg 中的數據搬到 mongo dataset.datas 中，並做映射 */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await authCert({ req, authRoot: true });

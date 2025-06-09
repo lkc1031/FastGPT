@@ -120,7 +120,7 @@ const Navbar = ({ unread }: { unread: number }) => {
       >
         <Avatar w={'2rem'} h={'2rem'} src={userInfo?.avatar} borderRadius={'50%'} />
       </Box>
-      {/* 导航列表 */}
+      {/* 導航列表 */}
       <Box flex={1}>
         {navbarList.map((item) => {
           const isActive = item.activeLink.includes(router.pathname);

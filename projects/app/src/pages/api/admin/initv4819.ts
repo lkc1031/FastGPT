@@ -6,9 +6,9 @@ import { MongoTeamMember } from '@fastgpt/service/support/user/team/teamMemberSc
 import { type NextApiRequest, type NextApiResponse } from 'next';
 
 /* 
-  简单版迁移：直接升级到最新镜像，会去除 MongoDatasetData 里的索引。直接执行这个脚本。
-  无缝迁移：
-    1. 移动 User 表中的 avatar 字段到 TeamMember 表中。
+  簡單版遷移：直接升級到最新鏡像，會去除 MongoDatasetData 裏的索引。直接執行這個腳本。
+  無縫遷移：
+    1. 移動 User 表中的 avatar 字段到 TeamMember 表中。
 */
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await authCert({ req, authRoot: true });
@@ -34,7 +34,7 @@ const moveUserAvatar = async () => {
             },
             {
               $set: {
-                avatar: (user as any).avatar // 删除 avatar 字段, 因为 Type 改了，所以这里不能直接写 user.avatar
+                avatar: (user as any).avatar // 刪除 avatar 字段, 因爲 Type 改了，所以這裏不能直接寫 user.avatar
               }
             },
             { session }

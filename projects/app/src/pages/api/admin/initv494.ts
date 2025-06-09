@@ -12,12 +12,12 @@ const initWebsiteSyncData = async () => {
   // find out all website dataset
   const datasets = await MongoDataset.find({ type: DatasetTypeEnum.websiteDataset }).lean();
 
-  console.log('更新站点同步的定时器');
+  console.log('更新站點同步的定時器');
   // Add scheduler for all website dataset
   await Promise.all(
     datasets.map((dataset) => {
       if (dataset.autoSync) {
-        // 随机生成一个往后 1～24 小时的时间
+        // 隨機生成一個往後 1～24 小時的時間
         const time = addHours(new Date(), Math.floor(Math.random() * 23) + 1);
         return retryFn(() =>
           upsertWebsiteSyncJobScheduler({ datasetId: String(dataset._id) }, time.getTime())
@@ -26,7 +26,7 @@ const initWebsiteSyncData = async () => {
     })
   );
 
-  console.log('移除站点同步集合的定时器');
+  console.log('移除站點同步集合的定時器');
   // Remove all nextSyncTime
   await retryFn(() =>
     MongoDatasetCollection.updateMany(

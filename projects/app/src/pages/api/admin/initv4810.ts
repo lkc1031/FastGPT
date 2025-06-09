@@ -5,7 +5,7 @@ import { MongoAppVersion } from '@fastgpt/service/core/app/version/schema';
 import { FastGPTProUrl } from '@fastgpt/service/common/system/constants';
 import { POST } from '@fastgpt/service/common/api/plusRequest';
 
-/* 初始化发布的版本 */
+/* 初始化發佈的版本 */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await authCert({ req, authRoot: true });

@@ -7,22 +7,22 @@ import { type OutLinkSchema } from '@fastgpt/global/support/outLink/type';
 import type { PublishChannelEnum } from '@fastgpt/global/support/outLink/constant';
 
 export const ApiMetadata = {
-  name: '获取应用内所有 Outlink',
+  name: '獲取應用內所有 Outlink',
   author: 'Finley',
   version: '0.1.0'
 };
 
 export type OutLinkListQuery = {
-  appId: string; // 应用 ID
+  appId: string; // 應用 ID
   type: `${PublishChannelEnum}`;
 };
 
 export type OutLinkListBody = {};
 
-// 应用内全部 Outlink 列表
+// 應用內全部 Outlink 列表
 export type OutLinkListResponse = OutLinkSchema[];
 
-// 查询应用的所有 OutLink
+// 查詢應用的所有 OutLink
 export async function handler(
   req: ApiRequestProps<OutLinkListBody, OutLinkListQuery>
 ): Promise<OutLinkListResponse> {

@@ -36,7 +36,7 @@ const NodeCode = ({ data, selected }: NodeProps<FlowNodeItemType>) => {
   const splitToolInputs = useContextSelector(WorkflowContext, (ctx) => ctx.splitToolInputs);
   const onChangeNode = useContextSelector(WorkflowContext, (ctx) => ctx.onChangeNode);
 
-  // 切换语言确认
+  // 切換語言確認
   const { ConfirmModal: SwitchLangConfirm, openConfirm: openSwitchLangConfirm } = useConfirm({
     content: t('workflow:code.Switch language confirm')
   });

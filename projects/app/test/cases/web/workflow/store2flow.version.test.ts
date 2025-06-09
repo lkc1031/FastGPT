@@ -52,7 +52,7 @@ describe('storeNode2FlowNode with version and avatar inheritance', () => {
   });
 
   it('should handle version and avatar inheritance', () => {
-    // 测试场景1：storeNode没有version，使用template的version
+    // 測試場景1：storeNode沒有version，使用template的version
     const storeNode1 = {
       nodeId: 'node1',
       flowNodeType: 'userInput' as FlowNodeTypeEnum,
@@ -62,7 +62,7 @@ describe('storeNode2FlowNode with version and avatar inheritance', () => {
       name: 'Test Node 1'
     };
 
-    // 测试场景2：storeNode没有avatar，使用template的avatar
+    // 測試場景2：storeNode沒有avatar，使用template的avatar
     const storeNode2 = {
       nodeId: 'node2',
       flowNodeType: 'userInput' as FlowNodeTypeEnum,
@@ -73,7 +73,7 @@ describe('storeNode2FlowNode with version and avatar inheritance', () => {
       version: '1.0'
     };
 
-    // 测试场景3：storeNode和template都有avatar，使用template的avatar
+    // 測試場景3：storeNode和template都有avatar，使用template的avatar
     const storeNode3 = {
       nodeId: 'node3',
       flowNodeType: 'userInput' as FlowNodeTypeEnum,
@@ -100,14 +100,14 @@ describe('storeNode2FlowNode with version and avatar inheritance', () => {
       t: ((key: any) => key) as any
     });
 
-    // 验证版本继承关系
+    // 驗證版本繼承關係
     expect(result1.data.version).toBe('2.0'); // 使用template的version
     expect(result2.data.version).toBe('2.0'); // 使用storeNode的version
     expect(result3.data.version).toBe('2.0'); // 使用storeNode的version
 
-    // 验证avatar继承关系
+    // 驗證avatar繼承關係
     expect(result1.data.avatar).toBe('template-avatar.png'); // 使用template的avatar
     expect(result2.data.avatar).toBe('template-avatar.png'); // 使用template的avatar
-    expect(result3.data.avatar).toBe('template-avatar.png'); // 根据源码，应该使用template的avatar
+    expect(result3.data.avatar).toBe('template-avatar.png'); // 根據源碼，應該使用template的avatar
   });
 });

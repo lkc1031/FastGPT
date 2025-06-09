@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN npm install -g pnpm@9.4.0
 
-# 复制package.json
+# 複製package.json
 COPY pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY projects/mcp_server/package.json ./projects/mcp_server/package.json
 
@@ -12,7 +12,7 @@ RUN apk add --no-cache\
     curl ca-certificates\
     && update-ca-certificates
 
-# 安装依赖
+# 安裝依賴
 RUN [ -f pnpm-lock.yaml ] || (echo "Lockfile not found." && exit 1)
 RUN pnpm i
 

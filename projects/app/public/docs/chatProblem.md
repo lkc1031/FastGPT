@@ -1,11 +1,11 @@
-### 常见问题
+### 常見問題
 
-- [**Git 地址**，点击查看项目地址](https://github.com/labring/FastGPT)
-- [点击查看官方文档](https://doc.tryfastgpt.ai/docs/)
-- [点击查看商业版文档](https://doc.tryfastgpt.ai/docs/shopping_cart/intro/)
-- [计费规则](https://doc.tryfastgpt.ai/docs/pricing/)
+- [**Git 地址**，點擊查看項目地址](https://github.com/labring/FastGPT)
+- [點擊查看官方文檔](https://doc.tryfastgpt.ai/docs/)
+- [點擊查看商業版文檔](https://doc.tryfastgpt.ai/docs/shopping_cart/intro/)
+- [計費規則](https://doc.tryfastgpt.ai/docs/pricing/)
 
-**其他问题**
-| 扫码进入交流群 |
+**其他問題**
+| 掃碼進入交流羣 |
 | ----------------------- |
 | ![](https://oss.laf.run/otnvvf-imgs/fastgpt-feishu1.png) |

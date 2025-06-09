@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'setting.html'
     });
 
-    // 监听 chatbotIframe 加载完成事件
+    // 監聽 chatbotIframe 加載完成事件
     chatbotIframe.addEventListener('load', function() {
-        // 当 iframe 加载完成后显示按钮
+        // 當 iframe 加載完成後顯示按鈕
         fullScreenBtn.style.display = 'inline-block';
         configBtn.style.display = 'inline-block';
     });

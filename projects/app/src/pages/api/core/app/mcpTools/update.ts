@@ -98,7 +98,7 @@ const updateMCPChildrenTool = async ({
     teamId
   });
 
-  // 删除 DB 里有，新的工具列表里没有的工具
+  // 刪除 DB 裏有，新的工具列表裏沒有的工具
   for await (const tool of dbTools) {
     if (!toolSetData.toolList.find((t) => t.name === tool.name)) {
       await onDelOneApp({
@@ -109,7 +109,7 @@ const updateMCPChildrenTool = async ({
     }
   }
 
-  // 创建 DB 里没有，新的工具列表里有的工具
+  // 創建 DB 裏沒有，新的工具列表裏有的工具
   for await (const tool of toolSetData.toolList) {
     if (!dbTools.find((t) => t.name === tool.name)) {
       await onCreateApp({
@@ -126,7 +126,7 @@ const updateMCPChildrenTool = async ({
     }
   }
 
-  // 更新 DB 里有的工具
+  // 更新 DB 裏有的工具
   for await (const tool of toolSetData.toolList) {
     const dbTool = dbTools.find((t) => t.name === tool.name);
     if (dbTool) {

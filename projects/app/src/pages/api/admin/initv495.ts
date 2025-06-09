@@ -12,8 +12,8 @@ import { retryFn } from '@fastgpt/global/common/system/utils';
 
 async function handler(req: NextApiRequest, _res: NextApiResponse) {
   await authCert({ req, authRoot: true });
-  // 更新团队权限：
-  // 目前所有有 TeamWritePermission 的，都需要添加三个新的权限。
+  // 更新團隊權限：
+  // 目前所有有 TeamWritePermission 的，都需要添加三個新的權限。
 
   const rps = await MongoResourcePermission.find({
     resourceType: 'team',
@@ -37,7 +37,7 @@ async function handler(req: NextApiRequest, _res: NextApiResponse) {
           await rp.save();
         });
       } catch (error) {
-        console.log('更新权限异常', error);
+        console.log('更新權限異常', error);
       }
     }
   }

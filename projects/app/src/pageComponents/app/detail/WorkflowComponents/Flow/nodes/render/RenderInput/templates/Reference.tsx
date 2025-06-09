@@ -67,7 +67,7 @@ export const useReference = ({
   const edges = useContextSelector(WorkflowNodeEdgeContext, (v) => v.edges);
   const nodeList = useContextSelector(WorkflowContext, (v) => v.nodeList);
 
-  // 获取可选的变量列表
+  // 獲取可選的變量列表
   const referenceList = useMemo(() => {
     const sourceNodes = computedNodeInputReference({
       nodeId,
@@ -81,7 +81,7 @@ export const useReference = ({
 
     const isArray = valueType?.includes('array');
 
-    // 转换为 select 的数据结构
+    // 轉換爲 select 的數據結構
     const list: CommonSelectProps['list'] = sourceNodes
       .map((node) => {
         return {

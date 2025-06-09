@@ -18,19 +18,19 @@ const updateData = async () => {
       const time = Date.now();
       const data = await MongoDatasetData.find({
         initJieba: { $exists: false },
-        updateTime: { $lte: time } // 只需要取旧的数据
+        updateTime: { $lte: time } // 只需要取舊的數據
       })
         .limit(1000)
         .lean();
       if (data.length === 0) {
-        console.log('更新分词完成');
+        console.log('更新分詞完成');
         break;
       }
 
       const dataTextOps: AnyBulkWriteOperation<DatasetDataTextSchemaType>[] = [];
       const datasetDataIds: string[] = [];
 
-      // 先进行分词处理
+      // 先進行分詞處理
       for await (const item of data) {
         const text = `${item.q} ${item.a}`.trim();
         try {
@@ -43,7 +43,7 @@ const updateData = async () => {
           });
           datasetDataIds.push(item._id);
         } catch (error) {
-          console.log(`分词处理错误: ${item._id}`, error);
+          console.log(`分詞處理錯誤: ${item._id}`, error);
         }
       }
 
@@ -65,7 +65,7 @@ const updateData = async () => {
       success += dataTextOps.length;
       console.log(`成功 ${success}`);
     } catch (error) {
-      addLog.error('更新所有旧的 jieba 分词失败', error);
+      addLog.error('更新所有舊的 jieba 分詞失敗', error);
       await delay(1000);
     }
   }
@@ -74,7 +74,7 @@ const updateData = async () => {
 async function handler(req: NextApiRequest, _res: NextApiResponse) {
   await authCert({ req, authRoot: true });
 
-  console.log('更新所有旧的 jieba 分词');
+  console.log('更新所有舊的 jieba 分詞');
   updateData();
   return { success: true };
 }

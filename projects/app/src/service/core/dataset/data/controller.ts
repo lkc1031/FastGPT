@@ -95,7 +95,7 @@ const formatIndexes = async ({
     }
   });
 
-  // 其他索引不能与默认索引相同，且不能自己有重复
+  // 其他索引不能與默認索引相同，且不能自己有重複
   indexes = indexes.filter(
     (item, index, self) =>
       item.type !== DatasetDataIndexTypeEnum.default &&
@@ -316,7 +316,7 @@ export async function updateData2Dataset({
     }
   }
 
-  // 4. Update mongo updateTime(便于脏数据检查器识别)
+  // 4. Update mongo updateTime(便於髒數據檢查器識別)
   const updateTime = mongoData.updateTime;
   mongoData.updateTime = new Date();
   await mongoData.save();

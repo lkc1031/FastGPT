@@ -32,7 +32,7 @@ import type {
 } from '@/pages/api/core/chat/quote/getCollectionQuote';
 
 /**
- * 获取初始化聊天内容
+ * 獲取初始化聊天內容
  */
 export const getInitChatInfo = (data: InitChatProps) =>
   GET<InitChatResponse>(`/core/chat/init`, data);
@@ -72,7 +72,7 @@ export const delChatRecordById = (data: DeleteChatItemProps) =>
   DELETE(`/core/chat/item/delete`, data);
 
 /**
- * 修改历史记录: 标题/置顶
+ * 修改歷史記錄: 標題/置頂
  */
 export const putChatHistory = (data: UpdateHistoryProps) => PUT('/core/chat/updateHistory', data);
 
@@ -94,7 +94,7 @@ export const getMyTokensApps = (data: AuthTeamTagTokenProps) =>
   GET<AppListItemType[]>(`/proApi/support/user/team/tag/getAppsByTeamTokens`, data);
 
 /**
- * 获取团队分享的对话列表 initTeamChat
+ * 獲取團隊分享的對話列表 initTeamChat
  * @param data
  * @returns
  */

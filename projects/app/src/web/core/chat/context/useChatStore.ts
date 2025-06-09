@@ -32,7 +32,7 @@ const createCustomStorage = () => {
     setItem: (name: string, value: string) => {
       const data = JSON.parse(value);
 
-      // 分离 session 和 local 数据
+      // 分離 session 和 local 數據
       const sessionData = Object.fromEntries(
         Object.entries(data.state).filter(([key]) => sessionKeys.includes(key))
       );
@@ -40,7 +40,7 @@ const createCustomStorage = () => {
         Object.entries(data.state).filter(([key]) => !sessionKeys.includes(key))
       );
 
-      // 分别存储
+      // 分別存儲
       if (Object.keys(sessionData).length > 0) {
         sessionStorage.setItem(name, JSON.stringify({ state: sessionData, version: 0 }));
       }
@@ -55,8 +55,8 @@ const createCustomStorage = () => {
   };
 };
 /* 
-  appId chatId source 存在当前 tab 中，刷新浏览器不会丢失。
-  lastChatId 和 lastChatAppId 全局存储，切换 tab 或浏览器也不会丢失。用于首次 tab 进入对话时，恢复上一次的 chat。(只恢复相同来源的)
+  appId chatId source 存在當前 tab 中，刷新瀏覽器不會丟失。
+  lastChatId 和 lastChatAppId 全局存儲，切換 tab 或瀏覽器也不會丟失。用於首次 tab 進入對話時，恢復上一次的 chat。(只恢復相同來源的)
 */
 export const useChatStore = create<State>()(
   devtools(
@@ -65,11 +65,11 @@ export const useChatStore = create<State>()(
         source: undefined,
         setSource(e) {
           set((state) => {
-            // 首次进入 chat 页面，如果相同的 source，则恢复上一次的 chatId
+            // 首次進入 chat 頁面，如果相同的 source，則恢復上一次的 chatId
             if (!state.chatId && state.lastChatId && state.lastChatId.startsWith(e)) {
               state.chatId = state.lastChatId.split('-')[1];
             } else if (e !== get().source) {
-              // 来源改变，强制重置 chatId
+              // 來源改變，強制重置 chatId
               state.chatId = getNanoid(24);
             }
 

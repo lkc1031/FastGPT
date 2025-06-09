@@ -13,7 +13,7 @@ import { type DatasetCollectionSchemaType } from '@fastgpt/global/core/dataset/t
 import { MongoDatasetTraining } from '@fastgpt/service/core/dataset/training/schema';
 import { deleteDatasetDataVector } from '@fastgpt/service/common/vectorDB/controller';
 
-// 删了库，没删集合
+// 刪了庫，沒刪集合
 const checkInvalidCollection = async () => {
   const batchSize = 1000;
 
@@ -54,7 +54,7 @@ const checkInvalidCollection = async () => {
           await retryFn(async () => {
             const datasetExists = await MongoDataset.findById(datasetId, '_id').lean();
             if (!datasetExists) {
-              console.log('清理无效的知识库集合, datasetId', datasetId);
+              console.log('清理無效的知識庫集合, datasetId', datasetId);
               await mongoSessionRun(async (session) => {
                 return await delCollection({
                   collections: val,
@@ -72,7 +72,7 @@ const checkInvalidCollection = async () => {
 
       success += batchSize;
       skip += batchSize;
-      console.log(`检测集合完成：${success}`);
+      console.log(`檢測集合完成：${success}`);
     } catch (error) {
       console.log(error);
       await delay(1000);
@@ -80,7 +80,7 @@ const checkInvalidCollection = async () => {
   }
 };
 
-// 删了集合，没删 data
+// 刪了集合，沒刪 data
 const checkInvalidData = async () => {
   try {
     const datas = (await MongoDatasetData.aggregate([
@@ -99,19 +99,19 @@ const checkInvalidData = async () => {
       collectionId: string;
     }[];
     console.log('Total data collections length', datas.length);
-    // 批量获取集合
+    // 批量獲取集合
     const collections = await MongoDatasetCollection.find({}, '_id').lean();
     console.log('Total collection length', collections.length);
     const collectionMap: Record<string, DatasetCollectionSchemaType> = {};
     for await (const collection of collections) {
       collectionMap[collection._id] = collection;
     }
-    // 逐一删除无效的集合内容
+    // 逐一刪除無效的集合內容
     for await (const data of datas) {
       try {
         const col = collectionMap[data.collectionId];
         if (!col) {
-          console.log('清理无效的知识库集合内容, collectionId', data.collectionId);
+          console.log('清理無效的知識庫集合內容, collectionId', data.collectionId);
           await retryFn(async () => {
             await MongoDatasetTraining.deleteMany({
               teamId: data.teamId,
@@ -140,26 +140,26 @@ const checkInvalidData = async () => {
       }
     }
 
-    console.log(`检测集合完成`);
+    console.log(`檢測集合完成`);
   } catch (error) {
     console.log('checkInvalidData error', error);
   }
 };
 
-// 删了data，没删 data_text
+// 刪了data，沒刪 data_text
 const checkInvalidDataText = async () => {
   try {
-    // 获取所有索引层的 dataId
+    // 獲取所有索引層的 dataId
     const dataTexts = await MongoDatasetDataText.find({}, 'dataId').lean();
     const dataIds = dataTexts.map((item) => String(item.dataId));
     console.log('Total data_text dataIds:', dataIds.length);
 
-    // 获取数据层的 dataId
+    // 獲取數據層的 dataId
     const datas = await MongoDatasetData.find({}, '_id').lean();
     const datasSet = new Set(datas.map((item) => String(item._id)));
     console.log('Total data length:', datas.length);
 
-    // 存在索引层，不存在数据层的 dataId，说明数据已经被删了
+    // 存在索引層，不存在數據層的 dataId，說明數據已經被刪了
     const unExistsSet = dataIds.filter((id) => !datasSet.has(id));
     console.log('Total unExists dataIds:', unExistsSet.length);
     await MongoDatasetDataText.deleteMany({
@@ -170,7 +170,7 @@ const checkInvalidDataText = async () => {
   }
 };
 
-/* pg 中的数据搬到 mongo dataset.datas 中，并做映射 */
+/* pg 中的數據搬到 mongo dataset.datas 中，並做映射 */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     await authCert({ req, authRoot: true });
@@ -178,17 +178,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     (async () => {
       try {
-        // 360天 ~ 2小时前
+        // 360天 ~ 2小時前
         const endTime = addHours(new Date(), start);
         const startTime = addHours(new Date(), end);
-        console.log('清理无效的集合');
+        console.log('清理無效的集合');
         await checkInvalidCollection();
-        console.log('清理无效的数据');
+        console.log('清理無效的數據');
         await checkInvalidData();
-        console.log('清理无效的data_text');
+        console.log('清理無效的data_text');
         await checkInvalidDataText();
       } catch (error) {
-        console.log('执行脏数据清理任务出错了');
+        console.log('執行髒數據清理任務出錯了');
       }
     })();
 

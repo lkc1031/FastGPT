@@ -72,7 +72,7 @@ export const useSpeech = (props?: OutLinkChatAuthProps & { appId?: string }) => 
 
       const centerY = height / 2;
       const barWidth = (width / bufferLength) * 15;
-      const gap = 2; // 添加间隙
+      const gap = 2; // 添加間隙
       let x = width * 0.1;
 
       let sum = 0;
@@ -107,7 +107,7 @@ export const useSpeech = (props?: OutLinkChatAuthProps & { appId?: string }) => 
         canvasCtx.fillRect(x, centerY - Math.abs(barHeight), barWidth, Math.abs(barHeight));
         canvasCtx.fillRect(x, centerY, barWidth, Math.abs(barHeight));
 
-        x += barWidth + gap; // 增加间隔
+        x += barWidth + gap; // 增加間隔
 
         if (x > width * 0.9) break;
       }
@@ -200,7 +200,7 @@ export const useSpeech = (props?: OutLinkChatAuthProps & { appId?: string }) => 
                   filename: 'recording.mp3'
                 };
               }
-              // 默认回退选项
+              // 默認回退選項
               return {
                 options: { type: 'audio/webm' },
                 filename: 'recording.webm'

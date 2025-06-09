@@ -54,10 +54,10 @@ const ProgressView = ({ trainingDetail }: { trainingDetail: getTrainingDetailRes
     trainingDetail?.trainingType === DatasetCollectionDataProcessModeEnum.imageParse;
 
   /* 
-    状态计算
-    1. 暂时没有内容解析的状态
-    2. 完全没有训练数据时候，已就绪
-    3. 有训练数据，中间过程全部是进行中
+    狀態計算
+    1. 暫時沒有內容解析的狀態
+    2. 完全沒有訓練數據時候，已就緒
+    3. 有訓練數據，中間過程全部是進行中
   */
   const statesArray = useMemo(() => {
     const isReady =
@@ -76,7 +76,7 @@ const ProgressView = ({ trainingDetail }: { trainingDetail: getTrainingDetailRes
       return TrainingStatus.Running;
     };
 
-    // 只显示排队和处理中的数量
+    // 只顯示排隊和處理中的數量
     const getStatusText = (mode: TrainingModeEnum) => {
       if (isReady) return;
 

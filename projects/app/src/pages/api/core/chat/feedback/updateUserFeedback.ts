@@ -5,7 +5,7 @@ import { authChatCrud } from '@/service/support/permission/auth/chat';
 import { NextAPI } from '@/service/middleware/entry';
 import { type ApiRequestProps } from '@fastgpt/service/type/next';
 
-/* 初始化我的聊天框，需要身份验证 */
+/* 初始化我的聊天框，需要身份驗證 */
 async function handler(req: ApiRequestProps<UpdateChatFeedbackProps>, res: NextApiResponse) {
   const { appId, chatId, dataId, userBadFeedback, userGoodFeedback } = req.body;
 

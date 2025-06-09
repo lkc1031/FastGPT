@@ -41,18 +41,18 @@ async function handler(req: ApiRequestProps<CreateAppBody>) {
     return Promise.reject(CommonErrEnum.inheritPermissionError);
   }
 
-  // 凭证校验
+  // 憑證校驗
   const { teamId, tmbId, userId } = parentId
     ? await authApp({ req, appId: parentId, per: WritePermissionVal, authToken: true })
     : await authUserPer({ req, authToken: true, per: TeamAppCreatePermissionVal });
 
-  // 上限校验
+  // 上限校驗
   await checkTeamAppLimit(teamId);
   const tmb = await MongoTeamMember.findById({ _id: tmbId }, 'userId').populate<{
     user: { username: string };
   }>('user', 'username');
 
-  // 创建app
+  // 創建app
   const appId = await onCreateApp({
     parentId,
     name,

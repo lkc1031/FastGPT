@@ -32,7 +32,7 @@ async function resetExpiredPswHandler(
     return Promise.reject(i18nT('common:user.No_right_to_reset_password'));
   }
 
-  // 更新对应的记录
+  // 更新對應的記錄
   await MongoUser.updateOne(
     {
       _id: userId

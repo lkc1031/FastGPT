@@ -92,7 +92,7 @@ const updateHttpChildrenPlugin = async ({
     customHeader: pluginData?.customHeaders
   });
 
-  // 数据库中存在，schema不存在，删除
+  // 數據庫中存在，schema不存在，刪除
   for await (const plugin of dbPlugins) {
     if (!schemaPlugins.find((p) => p.name === plugin.pluginData?.pluginUniId)) {
       await onDelOneApp({
@@ -102,7 +102,7 @@ const updateHttpChildrenPlugin = async ({
       });
     }
   }
-  // 数据库中不存在，schema存在，新增
+  // 數據庫中不存在，schema存在，新增
   for await (const plugin of schemaPlugins) {
     if (!dbPlugins.find((p) => p.pluginData?.pluginUniId === plugin.name)) {
       await onCreateApp({
@@ -113,7 +113,7 @@ const updateHttpChildrenPlugin = async ({
       });
     }
   }
-  // 数据库中存在，schema存在，更新
+  // 數據庫中存在，schema存在，更新
   for await (const plugin of schemaPlugins) {
     const dbPlugin = dbPlugins.find((p) => plugin.name === p.pluginData?.pluginUniId);
     if (dbPlugin) {

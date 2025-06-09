@@ -76,10 +76,10 @@ const nextConfig = {
 
     return config;
   },
-  // 需要转译的包
+  // 需要轉譯的包
   transpilePackages: ['@modelcontextprotocol/sdk', 'ahooks'],
   experimental: {
-    // 优化 Server Components 的构建和运行，避免不必要的客户端打包。
+    // 優化 Server Components 的構建和運行，避免不必要的客戶端打包。
     serverComponentsExternalPackages: [
       'mongoose',
       'pg',
@@ -97,7 +97,7 @@ module.exports = nextConfig;
 function getWorkerConfig() {
   const result = fs.readdirSync(path.resolve(__dirname, '../../packages/service/worker'));
 
-  // 获取所有的目录名
+  // 獲取所有的目錄名
   const folderList = result.filter((item) => {
     return fs
       .statSync(path.resolve(__dirname, '../../packages/service/worker', item))

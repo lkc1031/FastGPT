@@ -4,7 +4,7 @@ import { authCert } from '@fastgpt/service/support/permission/auth/common';
 import { NextAPI } from '@/service/middleware/entry';
 import { connectionMongo } from '@fastgpt/service/common/mongo';
 
-/* pg 中的数据搬到 mongo dataset.datas 中，并做映射 */
+/* pg 中的數據搬到 mongo dataset.datas 中，並做映射 */
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await authCert({ req, authRoot: true });
 
@@ -12,7 +12,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -24,7 +24,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 0) {
         console.log(
-          'dataset_trainings 中有数据，无法自动将 dataset.trainings 迁移到 dataset_trainings，请手动操作'
+          'dataset_trainings 中有數據，無法自動將 dataset.trainings 遷移到 dataset_trainings，請手動操作'
         );
       } else {
         await sourceCol.rename('dataset_trainings', { dropTarget: true });
@@ -38,7 +38,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -50,7 +50,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 0) {
         console.log(
-          'dataset_collections 中有数据，无法自动将 dataset.collections 迁移到 dataset_collections，请手动操作'
+          'dataset_collections 中有數據，無法自動將 dataset.collections 遷移到 dataset_collections，請手動操作'
         );
       } else {
         await sourceCol.rename('dataset_collections', { dropTarget: true });
@@ -64,7 +64,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -76,7 +76,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 0) {
         console.log(
-          'dataset_datas 中有数据，无法自动将 dataset.datas 迁移到 dataset_datas，请手动操作'
+          'dataset_datas 中有數據，無法自動將 dataset.datas 遷移到 dataset_datas，請手動操作'
         );
       } else {
         await sourceCol.rename('dataset_datas', { dropTarget: true });
@@ -90,7 +90,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -102,7 +102,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 0) {
         console.log(
-          'app_versions 中有数据，无法自动将 app.versions 迁移到 app_versions，请手动操作'
+          'app_versions 中有數據，無法自動將 app.versions 遷移到 app_versions，請手動操作'
         );
       } else {
         await sourceCol.rename('app_versions', { dropTarget: true });
@@ -116,7 +116,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -128,7 +128,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 0) {
         console.log(
-          'buffer_rawtexts 中有数据，无法自动将 buffer.rawtexts 迁移到 buffer_rawtexts，请手动操作'
+          'buffer_rawtexts 中有數據，無法自動將 buffer.rawtexts 遷移到 buffer_rawtexts，請手動操作'
         );
       } else {
         await sourceCol.rename('buffer_rawtexts', { dropTarget: true });
@@ -142,7 +142,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -153,7 +153,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const targetCol = connectionMongo.connection.db.collection('buffer_tts');
 
       if ((await targetCol.countDocuments()) > 0) {
-        console.log('buffer_tts 中有数据，无法自动将 buffer.tts 迁移到 buffer_tts，请手动操作');
+        console.log('buffer_tts 中有數據，無法自動將 buffer.tts 遷移到 buffer_tts，請手動操作');
       } else {
         await sourceCol.rename('buffer_tts', { dropTarget: true });
         console.log('success rename buffer.tts -> buffer_tts');
@@ -166,7 +166,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -179,7 +179,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 1) {
         // 除了root
-        console.log('team_members 中有数据，无法自动将 team.tts 迁移到 team_members，请手动操作');
+        console.log('team_members 中有數據，無法自動將 team.tts 遷移到 team_members，請手動操作');
       } else {
         await sourceCol.rename('team_members', { dropTarget: true });
         console.log('success rename team.members -> team_members');
@@ -192,7 +192,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -203,7 +203,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const targetCol = connectionMongo.connection.db.collection('team_tags');
 
       if ((await targetCol.countDocuments()) > 0) {
-        console.log('team_tags 中有数据，无法自动将 team.tags 迁移到 team_tags，请手动操作');
+        console.log('team_tags 中有數據，無法自動將 team.tags 遷移到 team_tags，請手動操作');
       } else {
         await sourceCol.rename('team_tags', { dropTarget: true });
         console.log('success rename team.tags -> team_tags');
@@ -216,7 +216,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (!connectionMongo.connection.db) {
       return jsonRes(res, {
-        message: '数据库连接失败'
+        message: '數據庫連接失敗'
       });
     }
     const collections = await connectionMongo.connection.db
@@ -228,7 +228,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       if ((await targetCol.countDocuments()) > 0) {
         console.log(
-          'team_subscriptions 中有数据，无法自动将 team.subscriptions 迁移到 team_subscriptions，请手动操作'
+          'team_subscriptions 中有數據，無法自動將 team.subscriptions 遷移到 team_subscriptions，請手動操作'
         );
       } else {
         await sourceCol.rename('team_subscriptions', { dropTarget: true });

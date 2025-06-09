@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       size: string;
     };
 
-    // 凭证校验
+    // 憑證校驗
     const { teamId } = await authCert({ req, authToken: true });
 
     if (!size) {

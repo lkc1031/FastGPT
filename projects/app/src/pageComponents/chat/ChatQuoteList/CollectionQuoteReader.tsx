@@ -216,7 +216,7 @@ const CollectionReader = ({
             borderBottom={'1px solid'}
             borderColor={'myGray.150'}
           >
-            {/* 引用序号 */}
+            {/* 引用序號 */}
             <Flex fontSize={'mini'} mr={3} alignItems={'center'} gap={1}>
               <Box as={'span'} color={'myGray.900'}>
                 {t('common:core.chat.Quote')} {quoteIndex + 1}
@@ -229,7 +229,7 @@ const CollectionReader = ({
               </Box>
             </Flex>
 
-            {/* 检索分数 */}
+            {/* 檢索分數 */}
             {currentQuoteItem?.score ? (
               <ScoreTag {...formatScore(currentQuoteItem?.score)} />
             ) : isDeleted ? (
@@ -249,7 +249,7 @@ const CollectionReader = ({
 
             <Box flex={1} />
 
-            {/* 检索按钮 */}
+            {/* 檢索按鈕 */}
             <Flex gap={1}>
               <NavButton
                 direction="up"

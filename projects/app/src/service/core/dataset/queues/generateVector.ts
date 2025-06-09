@@ -33,7 +33,7 @@ const reduceQueueAndReturn = (delay = 0) => {
   }
 };
 
-/* 索引生成队列。每导入一次，就是一个单独的线程 */
+/* 索引生成隊列。每導入一次，就是一個單獨的線程 */
 export async function generateVector(): Promise<any> {
   const max = global.systemEnv?.vectorMaxProcess || 10;
   addLog.debug(`[Vector Queue] Queue size: ${global.vectorQueueLen}`);

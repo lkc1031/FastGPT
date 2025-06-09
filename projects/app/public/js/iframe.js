@@ -75,14 +75,14 @@ function embedChatbot() {
 
     let right = 0;
     if (btn.left >= ww) {
-      right = vw - btn.left + 10; // 左侧有空间则放在左侧，间距 10
+      right = vw - btn.left + 10; // 左側有空間則放在左側，間距 10
     } else if (vw - btn.right >= ww) {
-      right = vw - btn.right - ww - 10; // 右侧有空间则放在右侧
+      right = vw - btn.right - ww - 10; // 右側有空間則放在右側
     }
 
-    let bottom = Math.max(30, vh - btn.bottom); // 聊天窗口底部和按钮对齐，最少 30
+    let bottom = Math.max(30, vh - btn.bottom); // 聊天窗口底部和按鈕對齊，最少 30
     if (btn.top < wh) {
-      bottom = Math.min(bottom, vh - wh - 30); // 确保聊天窗口不超出顶部
+      bottom = Math.min(bottom, vh - wh - 30); // 確保聊天窗口不超出頂部
     }
 
     chatWindow.style.right = `${right}px`;

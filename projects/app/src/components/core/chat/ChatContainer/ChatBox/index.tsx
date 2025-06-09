@@ -176,7 +176,7 @@ const ChatBox = ({
       chatRecords.length > 0 ||
       [...variableList, ...externalVariableList].length === 0);
 
-  // 滚动到底部
+  // 滾動到底部
   const scrollToBottom = useMemoizedFn((behavior: 'smooth' | 'auto' = 'smooth', delay = 0) => {
     setTimeout(() => {
       if (!ScrollContainerRef.current) {
@@ -192,7 +192,7 @@ const ChatBox = ({
     }, delay);
   });
 
-  // 聊天信息生成中……获取当前滚动条位置，判断是否需要滚动到底部
+  // 聊天信息生成中……獲取當前滾動條位置，判斷是否需要滾動到底部
   const { run: generatingScroll } = useThrottleFn(
     (force?: boolean) => {
       if (!ScrollContainerRef.current) return;
@@ -360,7 +360,7 @@ const ChatBox = ({
     }
   );
 
-  // 重置输入内容
+  // 重置輸入內容
   const resetInputVal = useMemoizedFn(({ text = '', files = [] }: ChatBoxInputType) => {
     if (!TextareaDom.current) return;
     setValue('files', files);
@@ -513,12 +513,12 @@ const ChatBox = ({
           // Update histories(Interactive input does not require new session rounds)
           setChatRecords(
             isInteractivePrompt
-              ? // 把交互的结果存储到对话记录中，交互模式下，不需要新的会话轮次
+              ? // 把交互的結果存儲到對話記錄中，交互模式下，不需要新的會話輪次
                 setUserSelectResultToHistories(newChatList.slice(0, -2), text)
               : newChatList
           );
 
-          // 清空输入内容
+          // 清空輸入內容
           resetInputVal({});
           setQuestionGuide([]);
           scrollToBottom('smooth', 100);
@@ -528,7 +528,7 @@ const ChatBox = ({
             const abortSignal = new AbortController();
             chatController.current = abortSignal;
 
-            // 这里，无论是否为交互模式，最后都是 Human 的消息。
+            // 這裏，無論是否爲交互模式，最後都是 Human 的消息。
             const messages = chats2GPTMessages({
               messages: newChatList.slice(0, -1),
               reserveId: true,
@@ -536,7 +536,7 @@ const ChatBox = ({
             });
 
             const { responseText } = await onStartChat({
-              messages, // 保证最后一条是 Human 的消息
+              messages, // 保證最後一條是 Human 的消息
               responseChatItemId: responseChatId,
               controller: abortSignal,
               generatingMessage: (e) => generatingMessage({ ...e, autoTTSResponse }),
@@ -590,7 +590,7 @@ const ChatBox = ({
 
             if (!err?.responseText) {
               resetInputVal({ text, files });
-              // 这里的 newChatList 没包含用户交互输入的内容，所以重置后刚好是正确的。
+              // 這裏的 newChatList 沒包含用戶交互輸入的內容，所以重置後剛好是正確的。
               setChatRecords(newChatList.slice(0, newChatList.length - 2));
             }
 
@@ -975,7 +975,7 @@ const ChatBox = ({
           <Box id={'history'}>
             {chatRecords.map((item, index) => (
               <Box key={item.dataId}>
-                {/* 并且时间和上一条的time相差超过十分钟 */}
+                {/* 並且時間和上一條的time相差超過十分鐘 */}
                 {index !== 0 &&
                   item.time &&
                   chatRecords[index - 1].time !== undefined &&

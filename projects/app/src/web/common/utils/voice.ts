@@ -13,7 +13,7 @@ import { getWebReqUrl } from '@fastgpt/web/common/system/utils';
 const splitMarker = 'SPLIT_MARKER';
 const contentType = 'audio/mpeg';
 
-// 添加 MediaSource 支持检测函数
+// 添加 MediaSource 支持檢測函數
 const isMediaSourceSupported = () => {
   return typeof MediaSource !== 'undefined' && MediaSource.isTypeSupported?.(contentType);
 };
@@ -34,7 +34,7 @@ export const useAudioPlay = (
     if (typeof window === 'undefined') return false;
     if (ttsConfig?.type === TTSTypeEnum.none) return false;
     if (ttsConfig?.type === TTSTypeEnum.model) return true;
-    const voices = window?.speechSynthesis?.getVoices?.() || []; // 获取语言包
+    const voices = window?.speechSynthesis?.getVoices?.() || []; // 獲取語言包
     const voice = voices.find((item) => {
       return item.lang === 'zh-CN' || item.lang === 'zh';
     });
@@ -79,7 +79,7 @@ export const useAudioPlay = (
     // window speech
     window?.speechSynthesis?.cancel();
     const msg = new SpeechSynthesisUtterance(text);
-    const voices = window?.speechSynthesis?.getVoices?.() || []; // 获取语言包
+    const voices = window?.speechSynthesis?.getVoices?.() || []; // 獲取語言包
     const voice = voices.find((item) => {
       return item.lang === 'zh-CN';
     });
@@ -122,7 +122,7 @@ export const useAudioPlay = (
         if (!audioRef.current) return;
 
         if (!isMediaSourceSupported()) {
-          // 不支持 MediaSource 时，直接读取完整流并播放
+          // 不支持 MediaSource 時，直接讀取完整流並播放
           return new Promise<Uint8Array>(async (resolve) => {
             const reader = stream.getReader();
             let chunks: Uint8Array[] = [];
@@ -145,7 +145,7 @@ export const useAudioPlay = (
           });
         }
 
-        // 原有的 MediaSource 逻辑
+        // 原有的 MediaSource 邏輯
         const ms = new MediaSource();
         const url = URL.createObjectURL(ms);
         audioRef.current.src = url;
@@ -235,7 +235,7 @@ export const useAudioPlay = (
     if (!audioRef.current) return;
 
     if (!isMediaSourceSupported()) {
-      // 不支持 MediaSource 时，直接使用简单的音频播放
+      // 不支持 MediaSource 時，直接使用簡單的音頻播放
       cancelAudio();
       segmentedTextList.current = [];
       return;
@@ -275,7 +275,7 @@ export const useAudioPlay = (
   }, [cancelAudio]);
   const finishSegmentedAudio = useCallback(() => {
     if (!isMediaSourceSupported()) {
-      // 不支持 MediaSource 时，不需要特殊处理
+      // 不支持 MediaSource 時，不需要特殊處理
       return;
     }
 
@@ -326,7 +326,7 @@ export const useAudioPlay = (
     async (text: string, done?: boolean) => {
       if (ttsConfig?.type === TTSTypeEnum.model && ttsConfig?.model) {
         if (!isMediaSourceSupported()) {
-          // 不支持 MediaSource 时，等待文本结束后一次性播放
+          // 不支持 MediaSource 時，等待文本結束後一次性播放
           if (done) {
             try {
               const stream = await getAudioStream(text);
@@ -360,7 +360,7 @@ export const useAudioPlay = (
           return;
         }
 
-        // 原有的分段逻辑
+        // 原有的分段邏輯
         const splitReg = /([。！？]|[.!?]\s)/g;
         const storeText = segmentedTextList.current.join('');
         const newText = text.slice(storeText.length);
